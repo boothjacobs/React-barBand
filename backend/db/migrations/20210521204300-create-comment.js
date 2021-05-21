@@ -10,16 +10,16 @@ module.exports = {
       },
       body: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(500)
       },
       userId: {
         allowNull: false,
-        references: { model: 'User' },
+        references: { model: 'Users' },
         type: Sequelize.INTEGER
       },
       albumId: {
         allowNull: false,
-        references: { model: 'Album' },
+        references: { model: 'Albums' },
         type: Sequelize.INTEGER
       },
       createdAt: {

@@ -12,8 +12,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(100)
       },
-      fileUrl: {
-        type: Sequelize.STRING
+     artistId: {
+        allowNull: false,
+        references: { model: 'Artists' },
+        type: Sequelize.INTEGER
       },
       originalArtist: {
         allowNull: false,
@@ -21,13 +23,11 @@ module.exports = {
       },
       albumId: {
         allowNull: false,
-        references: { model: 'Album' },
+        references: { model: 'Albums' },
         type: Sequelize.INTEGER
       },
-      artistId: {
-        allowNull: false,
-        references: { model: 'Artist' },
-        type: Sequelize.INTEGER
+      fileUrl: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
