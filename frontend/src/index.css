@@ -1,0 +1,27 @@
+/* TODO Add site wide styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #EDF2F4;
+    color: #2B2D42;
+}
+
+nav {
+    background-color: #8D99AE;
+    color: #2B2D42;
+}
+
+a {
+    color: #2B2D42;
+    text-decoration: underline;
+}
+
+button {
+    background-color: #D90429;
+}
+
+.login-button {
+    color: #2B2D42;
+    background-color: #D90429;
+    width: 250px;
+    border-radius: 5px;
+}

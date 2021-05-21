@@ -1,0 +1,37 @@
+#login-page {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#login-title {
+    margin: auto;
+}
+
+.login-form {
+    margin: auto;
+    display: grid;
+    grid-template-areas: "labelOne inputOne"
+                        "labelTwo inputTwo"
+                        ". buttonOne";
+    grid-template-columns: 150px 200px;
+    grid-template-rows: 2em 2em 2em;
+    box-shadow: 0px 0px 15px darkgrey;
+    border-radius: 10px;
+}
+
+#login-label1 {
+    grid-area: labelOne;
+}
+#login-input1 {
+    grid-area: inputOne;
+}
+#login-label2 {
+    grid-area: labelTwo;
+}
+#login-input2 {
+    grid-area: inputTwo;
+}
+#login-button1 {
+    grid-area: buttonOne;
+}
