@@ -10,3 +10,9 @@ Minimum viable product goals for next Friday are the user collection page, album
 
 [Database Schema](https://dbdiagram.io/d/60a6ef39b29a09603d15da24) is also included in the "docs" folder.
 
+NOTE TO SELF:
+https://colorhunt.co/palette/273897
+text: #eeebdd
+button: #ce1212
+navbar: #810000
+background: #1b1717

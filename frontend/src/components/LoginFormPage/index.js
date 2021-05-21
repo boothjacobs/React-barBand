@@ -41,21 +41,20 @@ const LoginFormPage = () => {
                         {errors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>
                     <div className="form-field">
-                        <label id="login-label1" htmlFor="username">Username or email</label>
-                        <input id="login-input1" type="text" value={credential} name="username" required
+                        <label htmlFor="username">Username or email</label>
+                        <input type="text" value={credential} name="username" required
                             onChange={(e) => setCredential(e.target.value)}
                         />
                     </div>
-                    {/* trying to arrange form fields and labels to work in grid-template-areas */}
                     <div className="form-field">
-                        <label id="login-label2" htmlFor="password"> Password</label>
-                        <input id="login-input2" type="password" value={password} name="password" required
+                        <label htmlFor="password"> Password</label>
+                        <input type="password" value={password} name="password" required
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
 
                     <div className="form-field">
-                        <button id="login-button1" className="login-button">Log In</button>
+                        <button className="login-button">Log In</button>
                     </div>
                 </form>
             </div>

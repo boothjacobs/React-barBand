@@ -1,12 +1,28 @@
+
 #signup-page {
     display: flex;
     flex-direction: column;
     align-content: center;
+    background-image: url("../../images/bar-ext.jpeg");
+    height: 100vh;
+    width: 100vw;
+    background-clip: border-box;
+    background-size: cover;
 }
-
+#signup-title {
+    margin: auto;
+}
 .signup-form {
     margin: auto;
-    
+    padding: 10px;
+    display: flex;
+    justify-content: center;
     box-shadow: 0px 0px 15px darkgrey;
     border-radius: 10px;
+    /* background-color: #EDF2F4; */
+}
+
+.form-field {
+    padding: 5px;
+    margin: 5px;
 }
