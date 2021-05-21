@@ -1,6 +1,7 @@
 # BarBand
 
 BarBand is a Bandcamp clone for cover songs.
+https://bar-band.herokuapp.com/ 
 
 A BarBand user has a "collection" of saved albums. Clicking on an album from the collection, home page, or search results brings the user to an album page, which lists the tracks and their original artists.
 

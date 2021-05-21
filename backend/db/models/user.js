@@ -47,6 +47,13 @@ module.exports = (sequelize, DataTypes) => {
 });
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.Comment, { foreignKey: 'userId' });
+    const columnMapping = {
+      through: 'Collection',
+      otherKey: 'albumId',
+      foreignKey: 'userId'
+    }
+    User.belongsToMany(models.Album, columnMapping);
   };
 
 //instance methods
