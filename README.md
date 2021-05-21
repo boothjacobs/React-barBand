@@ -8,5 +8,5 @@ Minimum viable product goals for next Friday are the user collection page, album
 
 (Future updates will include original recording artists as a database model, a song player, and the ability to "follow" artists to show them on the home page on login)
 
-Database schema is here and included in the "docs" folder.
-[Database Schema](https://dbdiagram.io/d/60a6ef39b29a09603d15da24)
+[Database Schema](https://dbdiagram.io/d/60a6ef39b29a09603d15da24) is also included in the "docs" folder.
+
