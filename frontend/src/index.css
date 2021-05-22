@@ -1,6 +1,6 @@
 /* TODO Add site wide styles */
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Noto Serif', serif;
     background-color: #1b1717;
     color: #eeebdd;
 }
@@ -15,6 +15,11 @@ a {
     text-decoration: underline;
 }
 
+p {
+    color: #b8b5a8;
+    font-size: .75em;
+}
+
 button {
     background-color: #ce1212;
 }
@@ -24,6 +29,33 @@ button {
     background-color: #ce1212;
     width: 250px;
     border-radius: 5px;
+}
+
+.album-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-album-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+.list-album-text {
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.list-img {
+    width: 100%;
+    max-width: 200px;
+    max-height: 200px;
 }
 /* "Media Object" layout from MDN
 @media (min-width: 500px) {

@@ -5,6 +5,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from "./components/Navigation";
 import * as sessionActions from "./store/session";
+import SearchResults from './components/SearchResults';
 
 function App() {
   //restore user logic
@@ -19,6 +20,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/">
+            <SearchResults />
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
