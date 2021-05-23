@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Album.hasMany(models.Song, { foreignKey: 'albumId' });
     Album.hasMany(models.Comment, { foreignKey: 'albumId' });
-    const collectionMapping = {
+    const columnMapping = {
       through: 'Collection',
       otherKey: 'userId',
       foreignKey: 'albumId'
     }
-    Album.belongsToMany(models.User, collectionMapping);
+    Album.belongsToMany(models.User, columnMapping);
   };
   return Album;
 };
