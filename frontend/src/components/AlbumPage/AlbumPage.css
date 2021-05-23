@@ -27,3 +27,9 @@
 #music-player {
     border: 2px solid black;
 }
+
+#album-lg {
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+}

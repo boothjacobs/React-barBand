@@ -8,8 +8,8 @@ import './AlbumPage.css';
 const AlbumPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const record = useSelector((state) => state.albums);
-    const album = record[1];
+    const records = useSelector((state) => state.albums);
+    const album = records[id];
     console.log(id, "album page component", album);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const AlbumPage = () => {
             <h1 id="album-page-title">{album.title}</h1>
             <div id="album-page-text">
                 <div id="music-player"></div>
-                <div id="track-list">
+                <div id="album-page-details">
                     <ol>
                         <li>Track Name</li>
                         <li>Track Name</li>
@@ -31,6 +31,7 @@ const AlbumPage = () => {
                                 <li key={song.id}>{song.title} by {song.originalArtist}: {song.artistId}</li>
                             )
                         }) */}
+                        <p>{album.description}</p>
                     </ol>
                 </div>
             </div>

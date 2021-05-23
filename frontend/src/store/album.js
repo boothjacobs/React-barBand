@@ -29,7 +29,7 @@ export const getAlbumPage = (albumId) => async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}`);
     if (res.ok) {
         const album = await res.json();
-        console.log("inside getAlbumPage", album)
+        // console.log("inside getAlbumPage", album)
         dispatch(oneAlbum(album))
     } else {
         console.log(res);
