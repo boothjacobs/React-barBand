@@ -29,8 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [60, 60]
       }
-    }
-  }, {
+    },
+    profileImage: DataTypes.STRING,
+  },
+   {
     defaultScope: {
       attributes: {
         exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt'],
