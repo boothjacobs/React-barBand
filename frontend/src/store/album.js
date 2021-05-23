@@ -1,11 +1,17 @@
 //Define action types
 const SET_ALBUMS = 'albums/SET_ALBUMS';
+const ONE_ALBUM = 'albums/ONE_ALBUM';
 
 //Define action creators
 const setAlbums = (albums) => ({
     type: SET_ALBUMS,
-    albums
+    albums //payload
 });
+
+const oneAlbum = (album) => ({
+    type: ONE_ALBUM,
+    album //payload
+})
 
 //THUNKS
 export const getAlbums = () => async (dispatch) => {
@@ -17,7 +23,19 @@ export const getAlbums = () => async (dispatch) => {
     } else {
         console.log(res.statusText);
     }
-}
+};
+
+export const getAlbumPage = (albumId) => async (dispatch) => {
+    console.log("store", albumId, typeof albumId)
+    const res = await fetch(`/api/albums/${albumId}`);
+    if (res.ok) {
+        const album = await res.json();
+        console.log(album)
+        dispatch(oneAlbum(album))
+    } else {
+        console.log(res);
+    }
+};
 
 const initialState = {};
 
@@ -30,6 +48,10 @@ const albumReducer = (state = initialState, action) => {
                 newState[album.id] = album;
             })
             return newState;
+        case ONE_ALBUM:
+            const individualState = {...state};
+            individualState[action.album.id] = action.album;
+            return individualState;
         default:
             return state;
     }

@@ -6,6 +6,7 @@ import SignupFormPage from './components/SignupFormPage';
 import Navigation from "./components/Navigation";
 import * as sessionActions from "./store/session";
 import SearchResults from './components/SearchResults';
+import AlbumPage from './components/AlbumPage';
 
 function App() {
   //restore user logic
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/api/albums/:id">
+            <AlbumPage />
           </Route>
         </Switch>
       )}
