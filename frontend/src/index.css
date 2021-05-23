@@ -1,12 +1,18 @@
 /* TODO Add site wide styles */
+#root {
+    position: absolute;
+}
+
 body {
-    font-family: 'Noto Serif', serif;
-    background-color: #1b1717;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #5a5a5a;
     color: #eeebdd;
 }
 
 nav {
-    background-color: #810000;
+    /* position: fixed; */
+    z-index: 1;
+    /* background-color: #353030; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,7 +20,8 @@ nav {
 
 a {
     color: #eeebdd;
-    text-decoration: underline;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }
 
 p {
@@ -23,13 +30,21 @@ p {
 }
 
 button {
-    background-color: #ce1212;
+    background-color: #cc2020;
     color: #eeebdd;
+    box-shadow: 0px 0px 10px rgb(255, 158, 93);
+    border: none;
+    border-radius: 5px;
+}
+
+h1, h2, h3 {
+    font-weight: 800;
 }
 
 .login-button {
     width: 250px;
     border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .album-list {

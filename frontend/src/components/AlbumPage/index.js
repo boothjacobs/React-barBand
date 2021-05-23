@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getAlbumPage } from "../../store/album";
+import { getAlbumPage, getAlbums } from "../../store/album";
 import './AlbumPage.css';
 
 const AlbumPage = () => {
@@ -10,10 +10,11 @@ const AlbumPage = () => {
     const { id } = useParams();
     const records = useSelector((state) => state.albums);
     const album = records[id];
-    console.log(id, "album page component", album);
+    console.log(id, album);
 
+    //album state is getting reset to initialState (empty object) on refresh--why?
     useEffect(() => {
-        dispatch(getAlbumPage(id))
+        dispatch(getAlbums(id))
     }, [dispatch, id]);
 
     return (
@@ -23,14 +24,11 @@ const AlbumPage = () => {
                 <div id="music-player"></div>
                 <div id="album-page-details">
                     <ol>
-                        <li>Track Name</li>
-                        <li>Track Name</li>
-                        <li>Track Name</li>
-                        {/* album.songs.forEach((song) => {
+                        {album.Songs.map((song) => {
                             return (
-                                <li key={song.id}>{song.title} by {song.originalArtist}: {song.artistId}</li>
+                                <li key={song.id}>{song.title} <em>by {song.originalArtist}</em>: {song.artistId}</li>
                             )
-                        }) */}
+                        })}
                         <p>{album.description}</p>
                     </ol>
                 </div>

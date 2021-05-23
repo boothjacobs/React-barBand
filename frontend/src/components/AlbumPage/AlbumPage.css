@@ -15,12 +15,11 @@
 
 #album-page-text {
     grid-area: left;
-    border: 1px solid white;
+    padding: 5px;
 }
 
 #album-page-right {
     grid-area: right;
-    border: 1px solid white;
 }
 
 #music-player {

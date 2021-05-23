@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
@@ -17,10 +17,14 @@ const Navigation = ({isLoaded}) => {
       sessionLinks = (
         <>
           <div className="nav-links">
-            <NavLink to="/login">Log In </NavLink>
+            <button type="button">
+              <Link to="/login">Log In </Link>
+            </button>
           </div>
           <div className="nav-links">
-            <NavLink to="/signup"> Sign Up</NavLink>
+            <button type="button">
+              <Link to="/signup"> Sign Up</Link>
+            </button>
           </div>
         </>
       );
@@ -29,7 +33,9 @@ const Navigation = ({isLoaded}) => {
     return (
         <nav>
             <div className="nav-links" id="nav-home-link">
-              <NavLink exact to="/">Home</NavLink>
+              <button type="button">
+                <Link exact to="/">BarBand</Link>
+              </button>
             </div>
             <div id="session-links">
               {isLoaded && sessionLinks}

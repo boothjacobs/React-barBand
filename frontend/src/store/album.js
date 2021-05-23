@@ -25,16 +25,16 @@ export const getAlbums = () => async (dispatch) => {
     }
 };
 
-export const getAlbumPage = (albumId) => async (dispatch) => {
-    const res = await fetch(`/api/albums/${albumId}`);
-    if (res.ok) {
-        const album = await res.json();
-        // console.log("inside getAlbumPage", album)
-        dispatch(oneAlbum(album))
-    } else {
-        console.log(res);
-    }
-};
+// export const getAlbumPage = (albumId) => async (dispatch) => {
+//     const res = await fetch(`/api/albums/${albumId}`);
+//     if (res.ok) {
+//         const album = await res.json();
+//         // console.log("inside getAlbumPage", album)
+//         dispatch(oneAlbum(album))
+//     } else {
+//         console.log(res);
+//     }
+// };
 
 const initialState = {};
 
@@ -47,10 +47,10 @@ const albumReducer = (state = initialState, action) => {
                 newState[album.id] = album;
             })
             return newState;
-        case ONE_ALBUM:
-            const individualState = {...state};
-            individualState[action.album.id] = action.album;
-            return individualState;
+        // case ONE_ALBUM:
+        //     const individualState = {...state};
+        //     individualState[action.album.id] = action.album;
+        //     return individualState;
         default:
             return state;
     }
