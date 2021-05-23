@@ -74,7 +74,7 @@ const SignupFormPage = () => {
                 </form>
             </div>
             <div className="switch-link">
-                <Link to="/signup">Need an account?</Link>
+                <Link to="/login">Already have an account?</Link>
             </div>
         </div>
     )

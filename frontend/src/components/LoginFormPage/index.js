@@ -59,7 +59,7 @@ const LoginFormPage = () => {
                 </form>
             </div>
             <div className="switch-link">
-                <Link to="/login">Already have an account?</Link>
+                <Link to="/signup">Need an account?</Link>
             </div>
         </div>
 

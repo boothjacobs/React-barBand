@@ -7,7 +7,9 @@ body {
 
 nav {
     background-color: #810000;
-    /* color: #2B2D42; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 a {
@@ -22,11 +24,10 @@ p {
 
 button {
     background-color: #ce1212;
+    color: #eeebdd;
 }
 
 .login-button {
-    color: #eeebdd;
-    background-color: #ce1212;
     width: 250px;
     border-radius: 5px;
 }
