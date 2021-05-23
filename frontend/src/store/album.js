@@ -26,11 +26,10 @@ export const getAlbums = () => async (dispatch) => {
 };
 
 export const getAlbumPage = (albumId) => async (dispatch) => {
-    console.log("store", albumId, typeof albumId)
     const res = await fetch(`/api/albums/${albumId}`);
     if (res.ok) {
         const album = await res.json();
-        console.log(album)
+        console.log("inside getAlbumPage", album)
         dispatch(oneAlbum(album))
     } else {
         console.log(res);
