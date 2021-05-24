@@ -10,7 +10,7 @@ const AlbumPage = () => {
     const { id } = useParams();
     const records = useSelector((state) => state.albums);
     const album = records[id];
-    console.log(id, album);
+    console.log("album component", album);
 
     //album state is getting reset to initialState (empty object) on refresh--why?
     useEffect(() => {
@@ -19,26 +19,26 @@ const AlbumPage = () => {
 
     return (
         <div id="album-page">
-            <h1 id="album-page-title">{album.title}</h1>
+            <h1 id="album-page-title">{album?.title}</h1>
             <div id="album-page-text">
                 <div id="music-player"></div>
                 <div id="album-page-details">
                     <ol>
-                        {/* {album.Songs.map((song) => {
+                        {album?.Songs?.map((song) => {
                             return (
                                 <li key={song.id}>{song.title} <em>by {song.originalArtist}</em>: {song.artistId}</li>
                             )
-                        })} */}
-                        <p>{album.description}</p>
+                        })}
+                        <p>{album?.description}</p>
                     </ol>
                 </div>
             </div>
             <div id="album-page-right">
-                <img id="album-lg" src={album.imgUrl} alt="album cover"/>
+                <img id="album-lg" src={album?.imgUrl} alt="album cover"/>
                 <div id="comments">
-                    {/* album.comments.forEach((comment) => {
+                    {/* comments.map((comment) => media object)
                         <Comment />
-                    }) */}
+                     */}
                 </div>
             </div>
         </div>
