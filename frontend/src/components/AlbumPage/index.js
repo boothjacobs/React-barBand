@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { getAlbumPage, getAlbums } from "../../store/album";
 import './AlbumPage.css';
+import Comment from "../Comment";
 
 const AlbumPage = () => {
     const dispatch = useDispatch();
@@ -35,9 +36,12 @@ const AlbumPage = () => {
             <div id="album-page-right">
                 <img id="album-lg" src={album?.imgUrl} alt="album cover"/>
                 <div id="comments">
-                    {/* comments.map((comment) => media object)
-                        <Comment />
-                     */}
+                    {album?.Comments?.map((comment) => {
+                            return (
+                                <Comment body={comment.body} user={comment.User} />
+                            )
+                        }
+                    )}
                 </div>
             </div>
         </div>

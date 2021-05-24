@@ -15,14 +15,25 @@ router.get("", asyncHandler(async (req, res) => {
 //route for individual album page
 router.get("/:id", asyncHandler(async (req, res) => {
     const album = await Album.findByPk(req.params.id, {
-        include: {
+        include: [{
             model: Song,
             include: Artist
-        }
+        },
+        {
+            model: Comment,
+            include: User
+        }]
     });
     if (album) {
         return res.json(album);
     }
+}));
+
+router.get("/:id/comments", asyncHandler(async (req, res) => {
+    const comments = await Comment.findAll({
+        where: { albumId: req.params.id },
+        include: User
+    })
 }))
 
 module.exports = router;
