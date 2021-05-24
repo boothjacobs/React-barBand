@@ -26,7 +26,11 @@ a {
 
 p {
     color: #b8b5a8;
-    font-size: .75em;
+    /* font-size: .75em; */
+}
+
+li {
+    padding: 4px;
 }
 
 button {
@@ -73,4 +77,3 @@ h1, h2, h3 {
     max-width: 200px;
     max-height: 200px;
 }
-

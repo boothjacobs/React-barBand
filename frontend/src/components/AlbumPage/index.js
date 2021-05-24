@@ -25,7 +25,7 @@ const AlbumPage = () => {
                     <ol>
                         {album?.Songs?.map((song) => {
                             return (
-                                <li key={song.id}>{song.title} <em>by {song.originalArtist}</em>: {song.Artist.name}</li>
+                                <li key={song.id}><b>{song.title}</b> <i>by {song.originalArtist}</i>: <b>{song.Artist.name}</b></li>
                             )
                         })}
                         <p>{album?.description}</p>
