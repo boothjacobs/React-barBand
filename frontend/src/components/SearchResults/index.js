@@ -7,7 +7,6 @@ import { getAlbums } from "../../store/album";
 const SearchResults = () => {
     const dispatch = useDispatch();
     const albums = useSelector((state) => Object.values(state.albums));
-    // console.log("search results component", albums)
 
     useEffect(() => {
         dispatch(getAlbums())
@@ -29,4 +28,3 @@ const SearchResults = () => {
 }
 
 export default SearchResults;
-

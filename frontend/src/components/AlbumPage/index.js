@@ -10,9 +10,8 @@ const AlbumPage = () => {
     const { id } = useParams();
     const records = useSelector((state) => state.albums);
     const album = records[id];
-    console.log("album component", album);
+    // console.log("album component", album);
 
-    //album state is getting reset to initialState (empty object) on refresh--why?
     useEffect(() => {
         dispatch(getAlbumPage(id))
     }, [dispatch, id]);
@@ -26,7 +25,7 @@ const AlbumPage = () => {
                     <ol>
                         {album?.Songs?.map((song) => {
                             return (
-                                <li key={song.id}>{song.title} <em>by {song.originalArtist}</em>: {song.artistId}</li>
+                                <li key={song.id}>{song.title} <em>by {song.originalArtist}</em>: {song.Artist.name}</li>
                             )
                         })}
                         <p>{album?.description}</p>
