@@ -11,7 +11,7 @@ const setAlbums = (albums) => ({
 const oneAlbum = (album) => ({
     type: ONE_ALBUM,
     album //payload
-})
+});
 
 //THUNKS
 export const getAlbums = () => async (dispatch) => {
@@ -25,16 +25,16 @@ export const getAlbums = () => async (dispatch) => {
     }
 };
 
-// export const getAlbumPage = (albumId) => async (dispatch) => {
-//     const res = await fetch(`/api/albums/${albumId}`);
-//     if (res.ok) {
-//         const album = await res.json();
-//         // console.log("inside getAlbumPage", album)
-//         dispatch(oneAlbum(album))
-//     } else {
-//         console.log(res);
-//     }
-// };
+export const getAlbumPage = (albumId) => async (dispatch) => {
+    const res = await fetch(`/api/albums/${albumId}`);
+    if (res.ok) {
+        const album = await res.json();
+        console.log("inside getAlbumPage", album)
+        dispatch(oneAlbum(album))
+    } else {
+        console.log(res);
+    }
+};
 
 const initialState = {};
 

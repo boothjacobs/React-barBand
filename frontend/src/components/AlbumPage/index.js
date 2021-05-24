@@ -14,7 +14,7 @@ const AlbumPage = () => {
 
     //album state is getting reset to initialState (empty object) on refresh--why?
     useEffect(() => {
-        dispatch(getAlbums(id))
+        dispatch(getAlbumPage(id))
     }, [dispatch, id]);
 
     return (
@@ -24,11 +24,11 @@ const AlbumPage = () => {
                 <div id="music-player"></div>
                 <div id="album-page-details">
                     <ol>
-                        {album.Songs.map((song) => {
+                        {/* {album.Songs.map((song) => {
                             return (
                                 <li key={song.id}>{song.title} <em>by {song.originalArtist}</em>: {song.artistId}</li>
                             )
-                        })}
+                        })} */}
                         <p>{album.description}</p>
                     </ol>
                 </div>

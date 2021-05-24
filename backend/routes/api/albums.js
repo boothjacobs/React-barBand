@@ -8,10 +8,10 @@ const { Album, Song, Collection, Comment, Artist, User } = require("../../db/mod
 //route for /api/albums
 router.get("", asyncHandler(async (req, res) => {
     const albums = await Album.findAll({
-        include: {
-            model: 'Songs',
-            include: ['Artists']
-    }
+    //     include: {
+    //         model: 'Songs',
+    //         include: ['Artists']
+    // }
 });
     return res.json(albums);
 }));
@@ -19,7 +19,7 @@ router.get("", asyncHandler(async (req, res) => {
 //route for individual album page
 router.get("/:id", asyncHandler(async (req, res) => {
     const album = await Album.findByPk(req.params.id, {
-        include: 'Song'
+        include: ['Songs']
     });
     // console.log("***********", album)
     if (album) {

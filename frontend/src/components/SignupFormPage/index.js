@@ -36,10 +36,8 @@ const SignupFormPage = () => {
 
     return (
         <div id="signup-page">
-            <div id="signup-title">
-                <h3>Sign up for a BarBand fan account</h3>
-            </div>
             <div className="signup-form">
+                <h3>Sign up for a BarBand fan account</h3>
                 <form onSubmit={handleSubmit}>
                     <ul className="error-render">
                         {errors.map((error, i) => <li key={i}>{error}</li>)}
@@ -69,12 +67,12 @@ const SignupFormPage = () => {
                                 />
                         </div>
                     <div className="form-field">
-                        <button className="login-button">Log In</button>
+                        <button className="login-button">Sign Up</button>
                     </div>
                 </form>
-            </div>
-            <div className="switch-link">
-                <Link to="/login">Already have an account?</Link>
+                <div className="switch-link">
+                    <Link to="/login">Already have an account?</Link>
+                </div>
             </div>
         </div>
     )

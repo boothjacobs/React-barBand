@@ -32,10 +32,8 @@ const LoginFormPage = () => {
 
     return (
         <div id="login-page">
-            <div id="login-title">
-                <h3>Log In</h3>
-            </div>
             <div className="login-form">
+                <h3>Log In</h3>
                 <form onSubmit={handleSubmit}>
                     <ul className="error-render">
                         {errors.map((error, i) => <li key={i}>{error}</li>)}
@@ -57,9 +55,9 @@ const LoginFormPage = () => {
                         <button className="login-button">Log In</button>
                     </div>
                 </form>
-            </div>
-            <div className="switch-link">
-                <Link to="/signup">Need an account?</Link>
+                <div className="switch-link">
+                    <Link to="/signup">Need an account?</Link>
+                </div>
             </div>
         </div>
 
