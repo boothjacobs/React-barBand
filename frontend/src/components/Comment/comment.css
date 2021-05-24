@@ -1,29 +1,32 @@
 /* "Media Object" layout from MDN */
 @media (min-width: 500px) {
-    .media {
+    .comment {
         display: grid;
         grid-template-columns: fit-content(200px) 1fr;
-        grid-template-rows:1fr auto;
-        grid-template-areas:
-            "image content"
-            "image content";
-        grid-gap: 20px;
-        margin-bottom: 4em;
-    }
-
-    .media-flip {
-        grid-template-columns: 1fr fit-content(250px);
-        grid-template-areas:
-            "content image"
-            "footer image";
+        grid-template-rows: auto;
+        grid-template-areas:  "image content";
+        grid-gap: 5px;
+        margin-bottom: 5px;
     }
 
     .user-img {
         grid-area: image;
+        max-height: 35px;
+        height: 100%;
+        max-width: 35px;
+        width: 100%;
+        margin: 8px;
+        /* border: 1px solid white; */
     }
 
     .content {
         grid-area: content;
+        /* border: 1px solid white; */
     }
+
+    /* .header {
+        grid-area: header;
+        border: 1px solid white;
+    } */
 
 }

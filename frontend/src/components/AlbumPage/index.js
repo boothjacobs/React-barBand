@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { getAlbumPage, getAlbums } from "../../store/album";
 import './AlbumPage.css';
 import Comment from "../Comment";
+import CommentForm from "../CommentBox";
 
 const AlbumPage = () => {
     const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const AlbumPage = () => {
                         }
                     )}
                 </div>
+                <CommentForm />
             </div>
         </div>
     );
