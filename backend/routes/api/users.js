@@ -41,12 +41,12 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
 );
 
 router.get("/:id", requireAuth, asyncHandler(async (req, res) => {
-  const collection = await Collection.findOne({
+  const collections = await Collection.findAll({
     where: {'userId': req.params.id},
     include: 'Albums'
   });
-  res.json(collection);
-}))
+  res.json(collections);
+}));
 
 
 

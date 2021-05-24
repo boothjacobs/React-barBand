@@ -7,11 +7,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     userId: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      references: { model: "Users" }
     },
     albumId: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      references: { model: "Albums" }
     }
   }, {});
   Comment.associate = function(models) {

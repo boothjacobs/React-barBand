@@ -9,6 +9,7 @@ import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import * as albumActions from './store/album';
+import collectionReducer, * as collectActions from './store/collection';
 
 const store = configureStore();
 
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.sessionActions = sessionActions;
   window.albumActions = albumActions;
+  window.collectActions = collectActions;
 }
 
 function Root() {

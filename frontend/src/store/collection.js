@@ -12,9 +12,9 @@ const getCollect = (collection) => {
 //thunk
 export const getCollection = (userId) => async (dispatch) => {
     const response = await csrfFetch(`api/users/${userId}`);
-    const collection = await response.json();
-    // console.log(data)
-    dispatch(getCollect(collection))
+    const collections = await response.json();
+    console.log(collections)
+    // dispatch(getCollect(collections))
 }
 
 const initialState = { collection: null };
@@ -23,7 +23,7 @@ const collectionReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_COLLECTION:
             const newCollect = {...state};
-            newCollect[action.collection.id] = action.collection;
+            newCollect[action.collections.id] = action.collections;
             return newCollect;
         default:
             return state;

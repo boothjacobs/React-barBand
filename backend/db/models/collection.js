@@ -1,8 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Collection = sequelize.define('Collection', {
-    userId: DataTypes.INTEGER,
-    albumId: DataTypes.INTEGER
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: { model: "Users" }
+    },
+    albumId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: { model: "Albums" }
+    }
   }, {});
   Collection.associate = function(models) {
     // associations can be defined here
