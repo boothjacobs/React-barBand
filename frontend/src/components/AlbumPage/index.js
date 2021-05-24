@@ -42,7 +42,7 @@ const AlbumPage = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default AlbumPage;
