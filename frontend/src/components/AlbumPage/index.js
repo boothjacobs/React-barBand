@@ -12,25 +12,25 @@ const AlbumPage = () => {
     const { id } = useParams();
     const records = useSelector((state) => state.albums);
     const album = records[id];
-    // console.log("album component", album);
     const sessionUser = useSelector(state => state.session.user);
+    const collection = useSelector((state) => Object.values(state.collection));
+    // console.log("album component", collection);
 
     useEffect(() => {
         dispatch(getAlbumPage(id))
     }, [dispatch, id]);
 
-    // let revealForm;
-    // const revealComment = (e) => {
-    //     revealForm = (
-    //         <CommentForm />
-    //     )
-    // }
+    // console.log("this album id", typeof id)
+    // collection.forEach((collection) => console.log("for eaching", collection.albumId))
+    const ownThis = collection.find(collect => collect.albumId === +id
+    );
 
     return (
         <div id="album-page">
             <h1 id="album-page-title">{album?.title}</h1>
             <div id="album-page-text">
                 <div id="music-player"></div>
+                { ownThis ? (<p>❤️ You own this</p>) : (<Link>Add to Collection</Link>) }
                 <div id="album-page-details">
                     <ol>
                         {album?.Songs?.map((song) => {
@@ -44,12 +44,11 @@ const AlbumPage = () => {
             </div>
             <div id="album-page-right">
                 <img id="album-lg" src={album?.imgUrl} alt="album cover"/>
+
                 { sessionUser ? (
                     <>
                         <div id="album-page-comment-form">
                             <CommentForm />
-                            {/* <button type="button" onClick={revealComment}>Why do you love this album?</button>
-                                {revealForm} */}
                         </div>
                     </>
 

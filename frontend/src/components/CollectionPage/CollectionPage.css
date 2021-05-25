@@ -1,3 +1,23 @@
+#user-profile {
+    display: flex;
+    flex-direction: row;
+}
+
+#profile-image {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
 #collection {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.collection-album-display {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
 }

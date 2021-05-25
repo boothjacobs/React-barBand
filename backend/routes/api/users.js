@@ -40,7 +40,7 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
     }),
 );
 
-//GET COLLECTIONS
+//GET COLLECTIONS FOR USER
 router.get("/:id", asyncHandler(async (req, res) => {
   const collections = await Collection.findAll({
     where: {
@@ -54,5 +54,14 @@ router.get("/:id", asyncHandler(async (req, res) => {
 }));
 
 
+
+//count collections
+router.get("/collection-count", asyncHandler(async(req, res) => {
+  const otherCollections = await Collection.count({
+    where: {
+      'albumId': ,
+    }
+  })
+}))
 
 module.exports = router;

@@ -18,6 +18,12 @@ export const getCollection = (userId) => async (dispatch) => {
     dispatch(setCollect(collections))
 };
 
+export const countCollections = (albumId) => async (dispatch) => {
+    const response = await fetch("/collection-count");
+    const otherCollections = await response.json();
+    
+}
+
 const initialState = [];
 
 const collectionReducer = (state = initialState, action) => {
