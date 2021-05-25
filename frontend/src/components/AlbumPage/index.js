@@ -19,12 +19,12 @@ const AlbumPage = () => {
         dispatch(getAlbumPage(id))
     }, [dispatch, id]);
 
-    let revealForm;
-    const revealComment = (e) => {
-        revealForm = (
-            <CommentForm />
-        )
-    }
+    // let revealForm;
+    // const revealComment = (e) => {
+    //     revealForm = (
+    //         <CommentForm />
+    //     )
+    // }
 
     return (
         <div id="album-page">
@@ -47,8 +47,9 @@ const AlbumPage = () => {
                 { sessionUser ? (
                     <>
                         <div id="album-page-comment-form">
-                        <button type="button" onClick={revealComment}>Why do you love this album?</button>
-                            {revealForm}
+                            <CommentForm />
+                            {/* <button type="button" onClick={revealComment}>Why do you love this album?</button>
+                                {revealForm} */}
                         </div>
                     </>
 

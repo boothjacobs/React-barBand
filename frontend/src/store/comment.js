@@ -50,6 +50,7 @@ export const editComment = (albumId, commentId, body) => async (dispatch) => {
     });
     const comment = await response.json();
     dispatch(setComment(comment));
+    // console.log("COMMENT STORE EDIT THUNK", comment)
     return comment;
 };
 
@@ -82,7 +83,7 @@ const commentReducer = (state = initialState, action) => {
         }
         case DELETE: {
             const lessComments = {...state};
-            delete lessComments[action.done.id];
+            delete lessComments[action.done];
             return lessComments;
         }
         default:
