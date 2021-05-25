@@ -55,7 +55,7 @@ const Comment = ({album, comment, user}) => {
             <div className="content">
                 <p> <b>{user.username}</b> {comment.body}</p>
             </div>
-            { (user.id === sessionUser.id) ?
+            { (user.id === sessionUser?.id) ?
                 (
                     <div className="comment-buttons">
                         <button onClick={(e) => setShowEditForm(true)} type="button">Edit</button>
