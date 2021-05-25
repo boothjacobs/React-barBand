@@ -35,22 +35,20 @@ router.get("/:id/comments", asyncHandler(async (req, res) => {
     const comments = await Comment.findAll({
         where: { albumId: req.params.id },
         include: User
-    })
+    });
+    return res.json(comments);
 }));
 
 //add a comment for this album
 router.post("/:id/comments", requireAuth, asyncHandler(async (req, res) => {
-    const { commentBody } = req.body;
+    const { body } = req.body.comment;
     const userId = req.user.id;
     const albumId = req.params.id;
 
-    const comment = await Comment.build({ commentBody, userId, albumId });
-    if (comment) {
-        await comment.save();
-    } else {
-        console.log("**************** NO *****************")
-    }
+    console.log("=================", body)
 
+    const comment = await Comment.create({ body, userId, albumId });
+    return res.json(comment);
 }) );
 
 module.exports = router;
