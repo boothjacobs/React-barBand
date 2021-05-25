@@ -45,10 +45,30 @@ router.post("/:id/comments", requireAuth, asyncHandler(async (req, res) => {
     const userId = req.user.id;
     const albumId = req.params.id;
 
-    console.log("=================", body)
-
     const comment = await Comment.create({ body, userId, albumId });
     return res.json(comment);
 }) );
+
+//edit a comment
+router.put("/:id/comments/:commId", requireAuth, asyncHandler(async (req, res) => {
+    const albumId = req.params.id;
+    const commentId = req.params.commId;
+    const { body } = req.body.comment;
+
+    const comment = await Comment.findByPk(commentId);
+    comment.update({
+        body: body
+    });
+    return res.json(comment);
+}));
+
+router.delete("/:id/comments/:commId", requireAuth, asyncHandler(async (req, res) => {
+    const albumId = req.params.id;
+    const commentId = req.params.commId;
+
+    const comment = await Comment.findByPk(commentId);
+    await comment.destroy();
+    return res.json();
+}));
 
 module.exports = router;

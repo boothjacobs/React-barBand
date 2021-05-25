@@ -6,7 +6,7 @@ import { postComment, getComments } from "../../store/comment";
 
 const CommentForm = () => {
     const dispatch = useDispatch();
-    const commentBody = useSelector(state => state.commentBody);  //NEVER USED?
+    const commentBody = useSelector(state => state.commentBody);
     const { id } = useParams();
 
     const [body, setBody] = useState(commentBody);
@@ -18,18 +18,8 @@ const CommentForm = () => {
     const handleSubmit = async (e) => {
         // e.preventDefault();
         const payload = { body };
-
-        // let editedComment = await dispatch(editComment(payload))
-        // console.log(editedComment)
         let newComment = await dispatch(postComment(id, payload));
-        // console.log("ON SUBMIT======", payload);
-
     };
-
-    // const handleCancelClick = (e) => {
-    //     e.preventDefault();
-    //     setBody("");
-    // };
 
     return (
         <div className="comment-form">
@@ -39,7 +29,6 @@ const CommentForm = () => {
                     value={body}
                     onChange={(e) => setBody(e.target.value)} />
                 <button type="submit">Post</button>
-                {/* <button type="button" onClick={handleCancelClick}>Cancel</button> */}
             </form>
         </div>
     )

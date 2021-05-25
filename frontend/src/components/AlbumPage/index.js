@@ -39,7 +39,7 @@ const AlbumPage = () => {
                 <div id="comments">
                     {album?.Comments?.map((comment) => {
                             return (
-                                <Comment body={comment.body} user={comment.User} />
+                                <Comment comment={comment} user={comment.User} />
                             )
                         }
                     )}

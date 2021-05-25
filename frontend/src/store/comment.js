@@ -4,6 +4,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD = 'comments/LOAD_COMMENTS';
 const ADD_COMMENT = 'comments/ADD_COMMENT';
+const DELETE = 'comments/DELETE'
 
 const loadComments = (comments) => ({
     type: LOAD,
@@ -15,13 +16,17 @@ const setComment = (comment) => ({
     payload: comment
 });
 
+const deleteComm = (comment) => ({
+    type: DELETE,
+    payload: comment
+})
+
 export const getComments = (albumId) => async (dispatch) => {
     const response = await fetch(`/api/albums/${albumId}/comments`);
     const comments = await response.json();
     dispatch(loadComments(comments));
 };
 
-//WHAT IS GOING ON WITH THESE VARIABLE NAMES? WHO IS 'COMMENT'?
 export const postComment = (albumId, comment) => async (dispatch) => {
     const response = await csrfFetch(`/api/albums/${albumId}/comments`, {
         method: 'POST',
@@ -33,6 +38,32 @@ export const postComment = (albumId, comment) => async (dispatch) => {
     const body = await response.json();
     dispatch(setComment(body));
     return comment;
+};
+
+export const editComment = (albumId, commentId, body) => async (dispatch) => {
+    const response = await csrfFetch(`/${albumId}/comments/${commentId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({body})
+    });
+    const comment = await response.json();
+    dispatch(setComment(comment));
+    return comment;
+};
+
+export const deleteComment = (albumId, commentId, comment) => async (dispatch) => {
+    const response = await csrfFetch(`/${albumId}/comments/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({comment})
+    });
+    const done = await response.json();
+    dispatch(deleteComm(done));
+    return done;
 }
 
 const initialState = {};
@@ -49,6 +80,11 @@ const commentReducer = (state = initialState, action) => {
             const allComments = {...state};
             allComments[action.comments?.id] = action.comment;
             return allComments;
+        }
+        case DELETE: {
+            const lessComments = {...state};
+            delete lessComments[action.done.id];
+            return lessComments;
         }
         default:
             return state;
