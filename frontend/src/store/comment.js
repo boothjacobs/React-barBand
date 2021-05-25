@@ -41,7 +41,7 @@ export const postComment = (albumId, comment) => async (dispatch) => {
 };
 
 export const editComment = (albumId, commentId, body) => async (dispatch) => {
-    const response = await csrfFetch(`/${albumId}/comments/${commentId}`, {
+    const response = await csrfFetch(`/api/albums/${albumId}/comments/${commentId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ export const editComment = (albumId, commentId, body) => async (dispatch) => {
 };
 
 export const deleteComment = (albumId, commentId) => async (dispatch) => {
-    const response = await csrfFetch(`/${albumId}/comments/${commentId}`, {
+    const response = await csrfFetch(`/api/albums/${albumId}/comments/${commentId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

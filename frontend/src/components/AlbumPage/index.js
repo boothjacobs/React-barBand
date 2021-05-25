@@ -46,8 +46,8 @@ const AlbumPage = () => {
                 <img id="album-lg" src={album?.imgUrl} alt="album cover"/>
                 { sessionUser ? (
                     <>
+                        <div id="album-page-comment-form">
                         <button type="button" onClick={revealComment}>Why do you love this album?</button>
-                        <div>
                             {revealForm}
                         </div>
                     </>
@@ -57,7 +57,9 @@ const AlbumPage = () => {
                 <div id="comments">
                     {album?.Comments?.map((comment) => {
                             return (
-                                <Comment comment={comment} user={comment.User} />
+                                <div key={comment.id}>
+                                    <Comment album={album} comment={comment} user={comment.User} />
+                                </div>
                             )
                         }
                     )}

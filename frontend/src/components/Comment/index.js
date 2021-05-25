@@ -5,19 +5,20 @@ import { useParams } from 'react-router-dom';
 import "./comment.css";
 import { editComment, deleteComment } from "../../store/comment";
 
-const Comment = ({comment, user}) => {
+const Comment = ({album, comment, user}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const { id } = useParams();
+    const albumId = album.id;
     const commId = comment?.id;
 
-    const commentEdit = (e) => async (id, commId, payload) => {
-        let editedComment = await dispatch(editComment(id, commId, payload));
-        console.log(e.target.id)
+    const commentEdit = async (e) => {
+
+        let editedComment = await dispatch(editComment(albumId, commId, payload));
     };
     // console.log(commId);
-    const commentDelete = (e) => async (id, commId) => {
-        let deletedComment = await dispatch(deleteComment(id, commId));
+    const commentDelete = async (e) => {
+        console.log(albumId, commId)
+        let deletedComment = await dispatch(deleteComment(albumId, commId));
     };
 
     return (
