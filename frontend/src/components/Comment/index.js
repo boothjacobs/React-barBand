@@ -9,14 +9,15 @@ const Comment = ({comment, user}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const { id } = useParams();
-    const commId = comment.id;
+    const commId = comment?.id;
 
-    async function commentEdit(albumId, commId, payload) {
-        let editedComment = await dispatch(editComment(id, commId, payload))
-        console.log(editedComment)
+    const commentEdit = (e) => async (id, commId, payload) => {
+        let editedComment = await dispatch(editComment(id, commId, payload));
+        console.log(e.target.id)
     };
-    async function commentDelete(id) {
-
+    // console.log(commId);
+    const commentDelete = (e) => async (id, commId) => {
+        let deletedComment = await dispatch(deleteComment(id, commId));
     };
 
     return (

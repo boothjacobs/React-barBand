@@ -53,13 +53,12 @@ export const editComment = (albumId, commentId, body) => async (dispatch) => {
     return comment;
 };
 
-export const deleteComment = (albumId, commentId, comment) => async (dispatch) => {
+export const deleteComment = (albumId, commentId) => async (dispatch) => {
     const response = await csrfFetch(`/${albumId}/comments/${commentId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({comment})
+        }
     });
     const done = await response.json();
     dispatch(deleteComm(done));

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import { getAlbumPage, getAlbums } from "../../store/album";
 import './AlbumPage.css';
@@ -13,10 +13,18 @@ const AlbumPage = () => {
     const records = useSelector((state) => state.albums);
     const album = records[id];
     // console.log("album component", album);
+    const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(getAlbumPage(id))
     }, [dispatch, id]);
+
+    let revealForm;
+    const revealComment = (e) => {
+        revealForm = (
+            <CommentForm />
+        )
+    }
 
     return (
         <div id="album-page">
@@ -36,6 +44,16 @@ const AlbumPage = () => {
             </div>
             <div id="album-page-right">
                 <img id="album-lg" src={album?.imgUrl} alt="album cover"/>
+                { sessionUser ? (
+                    <>
+                        <button type="button" onClick={revealComment}>Why do you love this album?</button>
+                        <div>
+                            {revealForm}
+                        </div>
+                    </>
+
+                ) : null }
+
                 <div id="comments">
                     {album?.Comments?.map((comment) => {
                             return (
@@ -44,7 +62,6 @@ const AlbumPage = () => {
                         }
                     )}
                 </div>
-                <CommentForm />
             </div>
         </div>
     );
