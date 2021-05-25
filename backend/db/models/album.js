@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'albumId'
     }
     Album.belongsToMany(models.User, columnMapping);
+    Album.hasMany(models.Collection, { foreignKey: 'albumId' });
   };
   return Album;
 };

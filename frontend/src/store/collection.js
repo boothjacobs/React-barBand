@@ -1,34 +1,36 @@
 import { csrfFetch } from './csrf';
+import { useDispatch } from 'react-redux';
 
-const GET_COLLECTION = 'collection/GET_COLLECTION';
+const SET_COLLECTION = 'collection/GET_COLLECTION';
 
-const getCollect = (collection) => {
+const setCollect = (collections) => {
     return {
-        type: GET_COLLECTION,
-        payload: collection
+        type: SET_COLLECTION,
+        payload: collections
     }
 };
 
 //thunk
 export const getCollection = (userId) => async (dispatch) => {
-    const response = await csrfFetch(`api/users/${userId}`);
+    const response = await fetch(`${userId}`);
     const collections = await response.json();
-    console.log(collections)
-    // dispatch(getCollect(collections))
-}
+    console.log("COLLECTION STORE:", collections)
+    dispatch(setCollect(collections))
+};
 
-const initialState = { collection: null };
+const initialState = [];
 
 const collectionReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_COLLECTION:
-            const newCollect = {...state};
-            newCollect[action.collections.id] = action.collections;
+        case SET_COLLECTION:
+            const newCollect = {...state, ...action.payload};
+            // action.payload.forEach((collection) => {
+            //     newCollect[collection.id] = collection;
+            // })
             return newCollect;
         default:
             return state;
     }
-
 };
 
 export default collectionReducer;
