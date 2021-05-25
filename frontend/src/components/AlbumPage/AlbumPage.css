@@ -20,6 +20,8 @@
 
 #album-page-right {
     grid-area: right;
+    display: flex;
+    flex-direction: column;
 }
 
 #music-player {
@@ -30,4 +32,8 @@
     width: 100%;
     max-width: 500px;
     max-height: 500px;
+}
+
+#album-page-comment-form {
+    margin: 10px;
 }

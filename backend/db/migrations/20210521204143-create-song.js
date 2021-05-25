@@ -14,7 +14,7 @@ module.exports = {
       },
      artistId: {
         allowNull: false,
-        references: { model: 'Artists' },
+        references: { model: "Artists" },
         type: Sequelize.INTEGER
       },
       originalArtist: {
@@ -23,7 +23,7 @@ module.exports = {
       },
       albumId: {
         allowNull: false,
-        references: { model: 'Albums' },
+        references: { model: "Albums" },
         type: Sequelize.INTEGER
       },
       fileUrl: {
