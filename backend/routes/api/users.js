@@ -47,7 +47,8 @@ router.get("/:id", asyncHandler(async (req, res) => {
       'userId': req.params.id
     },
     include: [
-      {model: Album}
+      {model: Album},
+      {model: User}
     ]
   });
   res.json(collections);

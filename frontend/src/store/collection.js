@@ -27,9 +27,11 @@ const countCollect = (count) => {
 
 //thunk
 export const getCollection = (userId) => async (dispatch) => {
-    const response = await fetch(`${userId}`);
+    const response = await fetch(`/api/users/${userId}`); //Is this working?
     const collections = await response.json();
-    // console.log("COLLECTION STORE:", collections)
+
+    console.log("COLLECTION STORE:", collections)
+
     dispatch(setCollect(collections))
 };
 
@@ -38,7 +40,7 @@ export const addCollection = (userId, albumId) => async (dispatch) => {
 
     console.log("store add collection pre-fetch", collectionRelationship)
 
-    const response = await csrfFetch("/collection", {
+    const response = await csrfFetch("/api/collection", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -52,8 +54,9 @@ export const addCollection = (userId, albumId) => async (dispatch) => {
     dispatch(addCollect(newCollection));
 };
 
+//BROKEN THUNK
 export const countCollections = (albumId) => async (dispatch) => {
-    const response = await fetch("/collection/count");
+    const response = await fetch("/api/collection/count");
     const otherCollections = await response.json();
 
     dispatch(countCollect(otherCollections));
@@ -64,13 +67,17 @@ const initialState = [];
 const collectionReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_COLLECTION:
+            // console.log("inside reducer", action.payload)
             const newCollect = {...state, ...action.payload};
             // action.payload.forEach((collection) => {
             //     newCollect[collection.id] = collection;
             // })
             return newCollect;
+        case ADD_COLLECT:
+            const plusCollect = {...state, ...action.collection};
+            return plusCollect;
         case COUNT:
-            const newState = {...state, ...action.count}
+            const newState = {...state} //THIS CASE IS BROKEN
             return newState;
         default:
             return state;

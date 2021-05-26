@@ -31,7 +31,7 @@ const CollectionPage = () => {
                                     <h4>{album?.Album?.title}</h4>
                                 </div>
                             </Link>
-                            <OtherCollections albumId={album?.Album?.id} />
+                            {/* <OtherCollections albumId={album?.Album?.id} /> */}
                         </div>)}
             </div>
         </>

@@ -15,7 +15,6 @@ const AlbumPage = () => {
     const album = records[id];
     const sessionUser = useSelector(state => state.session.user);
     const collection = useSelector((state) => Object.values(state.collection));
-    // console.log("album component", collection);
 
     useEffect(() => {
         dispatch(getAlbumPage(id))

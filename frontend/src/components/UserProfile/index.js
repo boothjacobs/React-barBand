@@ -15,7 +15,7 @@ const UserProfile = () => {
     const records = useSelector((state) => Object.values(state.collection));
     const user = records[0]?.User;
 
-    console.log(user)
+    console.log(records)
 
     useEffect(() => {
         dispatch(getCollection(id))

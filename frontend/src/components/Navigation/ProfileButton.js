@@ -36,9 +36,9 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <div className="profile-dropdown">
-          <div><NavLink to={`/api/users/${user.id}`}>{user.username}</NavLink></div>
-          <div><NavLink to={`/api/users/${user.id}`}>{user.email}</NavLink></div>
-          <div>
+          <div className="profile-dropdown-buttons"><NavLink to={`/api/users/${user.id}`}>{user.username}</NavLink></div>
+          <div className="profile-dropdown-buttons"><NavLink to={`/api/users/${user.id}`}>view collection</NavLink></div>
+          <div className="profile-dropdown-buttons">
             <button onClick={logout}>Log Out</button>
           </div>
         </div>

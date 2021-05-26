@@ -10,7 +10,7 @@ const router = express.Router();
 
 //GET COLLECTION IS IN USER ROUTER
 
-//count collections
+//count collections--ERROR BUG
 router.get("/count", asyncHandler(async(req, res) => {
     const {albumId} = req.body;
     const otherCollections = await Collection.count({
@@ -22,6 +22,7 @@ router.get("/count", asyncHandler(async(req, res) => {
 
     return res.json(otherCollections);
 }));
+
 //requireAuth
 router.post("/", requireAuth, asyncHandler(async (req, res) => {
     const {userId, albumId} = req.body;
@@ -34,6 +35,7 @@ router.post("/", requireAuth, asyncHandler(async (req, res) => {
 
 router.delete("/", requireAuth, asyncHandler(async (req, res) => {
     const { userId, albumId } = req.body; //???? LEGAL?
+    //NOT WRITTEN YET
 }));
 
 

@@ -18,6 +18,11 @@ const Navigation = ({isLoaded}) => {
         <>
           <div className="nav-links">
             <button type="button">
+              <Link to="">Demo User </Link>
+            </button>
+          </div>
+          <div className="nav-links">
+            <button type="button">
               <Link to="/login">Log In </Link>
             </button>
           </div>
@@ -40,6 +45,7 @@ const Navigation = ({isLoaded}) => {
             <div id="session-links">
               {isLoaded && sessionLinks}
             </div>
+            <div className="divider"></div>
         </nav>
     );
 

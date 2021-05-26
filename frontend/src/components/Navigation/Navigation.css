@@ -8,7 +8,6 @@ nav {
     padding: 20px;
 }
 
-
 .nav-links {
     display: inline-block;
     padding: 5px 5px;
@@ -17,4 +16,15 @@ nav {
 #session-links {
     display: inline-block;
     padding: 0px 5px;
+}
+
+.profile-dropdown {
+    background-color: rgb(85, 85, 85);
+    border-radius: 5px;
+}
+
+.profile-dropdown-buttons {
+    font-size: .75em;
+    padding: 3px;
+    text-align: center;
 }
