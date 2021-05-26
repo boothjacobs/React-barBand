@@ -22,16 +22,16 @@ const CollectionPage = () => {
     return (
         <>
             <div id="collection">
-                    {records?.map((album) => <div className="collection-album-display" key={album.Album.id}>
-                            <Link to={`/api/albums/${album.Album.id}`}>
+                    {records?.map((album) => <div className="collection-album-display" key={album?.Album?.id}>
+                            <Link to={`/api/albums/${album?.Album?.id}`}>
                                 <div>
-                                    <img className="list-img" src={album.Album.imgUrl} alt="album cover" />
+                                    <img className="list-img" src={album?.Album?.imgUrl} alt="album cover" />
                                 </div>
                                 <div>
-                                    <h4>{album.Album.title}</h4>
+                                    <h4>{album?.Album?.title}</h4>
                                 </div>
                             </Link>
-                            <OtherCollections albumId={album.Album.id} />
+                            <OtherCollections albumId={album?.Album?.id} />
                         </div>)}
             </div>
         </>
