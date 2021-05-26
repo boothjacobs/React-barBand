@@ -1,7 +1,7 @@
 //renders below "user profile"
 import { useEffect } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 
 import { getCollection, deleteCollection } from "../../store/collection";
 import OtherCollections from "./OtherCollections";
@@ -14,12 +14,15 @@ const CollectionPage = () => {
     const records = useSelector((state) => Object.values(state.collection));
     // const sessionUser = useSelector(state => state.session.user);
 
+    const history = useHistory();
     useEffect(() => {
         dispatch(getCollection(id))
     }, [dispatch, id]);
 
     const removeButton = async (albumId) => {
         await dispatch(deleteCollection(albumId));
+        history.push("/");
+        history.goBack();
     };
 
     // console.log("****CollectionPage Component*****", id)
@@ -36,7 +39,7 @@ const CollectionPage = () => {
                                 </div>
                             </Link>
                             <button className="remove-collection" onClick={(e) => removeButton(album?.Album?.id)}>Remove from Collection</button>
-                            <OtherCollections albumId={album?.Album?.id} />
+                            {/* <OtherCollections albumId={album?.Album?.id} /> */}
                     </div>)}
             </div>
         </>

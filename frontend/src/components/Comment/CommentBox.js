@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { postComment, getComments } from "../../store/comment";
 
@@ -11,14 +11,17 @@ const CommentForm = () => {
 
     const [body, setBody] = useState(commentBody);
 
-    // useEffect(() => {
-        // dispatch(getComments(id));
-    //   }, [dispatch]);
+    const history = useHistory();
+    useEffect(() => {
+        dispatch(getComments(id));
+    }, [dispatch]);
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const payload = { body };
         let newComment = await dispatch(postComment(id, payload));
+        history.push("/");
+        history.goBack();
     };
 
     return (

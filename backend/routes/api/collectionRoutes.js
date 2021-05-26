@@ -26,8 +26,6 @@ router.post("/count", asyncHandler(async(req, res) => {
 router.post("/", requireAuth, asyncHandler(async (req, res) => {
     const {userId, albumId} = req.body;
 
-    console.log("user", userId, "album", albumId)
-
     let newCollect = await Collection.create({ userId, albumId });
     return res.json(newCollect);
 }));

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { getAlbumPage } from "../../store/album";
 import {addCollection} from "../../store/collection";
@@ -16,6 +16,7 @@ const AlbumPage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const collection = useSelector((state) => Object.values(state.collection));
 
+    const history = useHistory();
     useEffect(() => {
         dispatch(getAlbumPage(id))
     }, [dispatch, id]);
@@ -23,7 +24,9 @@ const AlbumPage = () => {
     const ownThis = collection.find(collect => collect.albumId === +id );
 
     const addButton = async () => {
-        await dispatch(addCollection(sessionUser.id, +id))
+        await dispatch(addCollection(sessionUser.id, +id));
+        history.push("/");
+        history.goBack();
     }
 
     return (

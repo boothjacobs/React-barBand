@@ -38,8 +38,6 @@ export const getCollection = (userId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}`); //Is this working?
     const collections = await response.json();
 
-    console.log("COLLECTION STORE:", collections)
-
     dispatch(setCollect(collections))
 };
 
@@ -95,15 +93,11 @@ const initialState = [];
 const collectionReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_COLLECTION:
-            // console.log("inside reducer", action.payload)
             const newCollect = {...state, ...action.payload};
-            // action.payload.forEach((collection) => {
-            //     newCollect[collection.id] = collection;
-            // })
             return newCollect;
         case ADD_COLLECT:
-            const plusCollect = {...state};
-                plusCollect[action.collection.id] = action.collection;
+            const plusCollect = {...state, ...action.collection};
+                // plusCollect[action.collection.id] = action.collection;
             return plusCollect;
         case COUNT:
             const newState = {...state, ...action.count}; //THIS CASE IS BROKEN
