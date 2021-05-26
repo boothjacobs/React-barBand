@@ -15,27 +15,11 @@ const Comment = ({album, comment, user}) => {
     const commId = comment?.id;
 
     const history = useHistory();
-    // const [body, setBody] = useState("");
-
-    // let editForm;
-    // const bringForm = (e) => {
-    //     console.log("TIME TO EDIT A COMMENT");
-    //     editForm = (
-    //         <div className="comment-form">
-    //             <form onSubmit={commentEdit}>
-    //                 <textarea
-    //                     value={comment.body}
-    //                     onChange={(e) => setBody(e.target.value)} />
-    //                 <button type="submit">Post</button>
-    //             </form>
-    //         </div>
-    //     )
-    // }
 
     const commentEditVerb = async (e) => {
         e.preventDefault();
 
-        console.log("comment component", commentEdit);
+        // console.log("comment component", commentEdit);
         let editedComment = await dispatch(editComment(albumId, commId, commentEdit));
         history.push("/");
         history.goBack();

@@ -12,26 +12,26 @@ const CollectionPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const records = useSelector((state) => Object.values(state.collection));
-    const sessionUser = useSelector(state => state.session.user);
+    // const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(getCollection(id))
     }, [dispatch, id]);
 
-    console.log("****CollectionPage Component*****", id, sessionUser)
+    // console.log("****CollectionPage Component*****", id)
     return (
         <>
-            <div id="user-profile">
-                <img id="profile-image" alt="user" src={sessionUser.profileImage} />
-                <h1>{sessionUser?.username}</h1>
-            </div>
             <div id="collection">
                     {records?.map((album) => <div className="collection-album-display" key={album.Album.id}>
                             <Link to={`/api/albums/${album.Album.id}`}>
-                                <img className="list-img" src={album.Album.imgUrl} alt="album cover" />
-                                <h4>{album.Album.title}</h4>
+                                <div>
+                                    <img className="list-img" src={album.Album.imgUrl} alt="album cover" />
+                                </div>
+                                <div>
+                                    <h4>{album.Album.title}</h4>
+                                </div>
                             </Link>
-                            {/* <OtherCollections albumId={album.Album.id} /> */}
+                            <OtherCollections albumId={album.Album.id} />
                         </div>)}
             </div>
         </>

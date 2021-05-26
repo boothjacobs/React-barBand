@@ -71,6 +71,7 @@ const collectionReducer = (state = initialState, action) => {
             return newCollect;
         case COUNT:
             const newState = {...state, ...action.count}
+            return newState;
         default:
             return state;
     }
