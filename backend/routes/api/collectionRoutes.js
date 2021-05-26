@@ -19,16 +19,22 @@ router.get("/count", asyncHandler(async(req, res) => {
         }
     });
     console.log("from collection API", otherCollections);
+
     return res.json(otherCollections);
 }));
+//requireAuth
+router.post("/", requireAuth, asyncHandler(async (req, res) => {
+    const {userId, albumId} = req.body;
 
-router.post("", requireAuth, asyncHandler(async (req, res) => {
+    console.log("user", userId, "album", albumId)
 
+    let newCollect = await Collection.create({ userId, albumId });
+    return res.json(newCollect);
 }));
 
-router.delete("", requireAuth, asyncHandler(async (req, res) => {
-    const userId = req.user.id; //???? LEGAL?
-}))
+router.delete("/", requireAuth, asyncHandler(async (req, res) => {
+    const { userId, albumId } = req.body; //???? LEGAL?
+}));
 
 
   module.exports = router;

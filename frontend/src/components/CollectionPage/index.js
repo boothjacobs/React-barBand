@@ -18,23 +18,21 @@ const CollectionPage = () => {
         dispatch(getCollection(id))
     }, [dispatch, id]);
 
-    console.log("****CollectionPage Component*****", id, records)
+    console.log("****CollectionPage Component*****", id, sessionUser)
     return (
         <>
             <div id="user-profile">
-                <img id="profile-image" alt="user" src={sessionUser?.profileImage} />
+                <img id="profile-image" alt="user" src={sessionUser.profileImage} />
                 <h1>{sessionUser?.username}</h1>
             </div>
             <div id="collection">
-                <div className="album-list">
                     {records?.map((album) => <div className="collection-album-display" key={album.Album.id}>
                             <Link to={`/api/albums/${album.Album.id}`}>
                                 <img className="list-img" src={album.Album.imgUrl} alt="album cover" />
-                                <h3>{album.Album.title}</h3>
+                                <h4>{album.Album.title}</h4>
                             </Link>
-                            <OtherCollections albumId={album.Album.id} />
+                            {/* <OtherCollections albumId={album.Album.id} /> */}
                         </div>)}
-                </div>
             </div>
         </>
 

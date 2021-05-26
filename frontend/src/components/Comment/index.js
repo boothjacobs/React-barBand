@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import { editComment, deleteComment } from "../../store/comment";
 import "./comment.css";
-import CommentForm from "../CommentBox";
+import CommentForm from "./CommentBox";
 
 const Comment = ({album, comment, user}) => {
     const dispatch = useDispatch();

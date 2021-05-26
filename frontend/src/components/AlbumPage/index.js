@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import { getAlbumPage, getAlbums } from "../../store/album";
+import { getAlbumPage } from "../../store/album";
+import {addCollection} from "../../store/collection";
 import './AlbumPage.css';
 import Comment from "../Comment";
-import CommentForm from "../CommentBox";
+import CommentForm from "../Comment/CommentBox";
 
 const AlbumPage = () => {
     const dispatch = useDispatch();
@@ -20,17 +21,18 @@ const AlbumPage = () => {
         dispatch(getAlbumPage(id))
     }, [dispatch, id]);
 
-    // console.log("this album id", typeof id)
-    // collection.forEach((collection) => console.log("for eaching", collection.albumId))
-    const ownThis = collection.find(collect => collect.albumId === +id
-    );
+    const ownThis = collection.find(collect => collect.albumId === +id );
+
+    const addButton = async () => {
+        await dispatch(addCollection(sessionUser.id, +id))
+    }
 
     return (
         <div id="album-page">
             <h1 id="album-page-title">{album?.title}</h1>
             <div id="album-page-text">
                 <div id="music-player"></div>
-                { ownThis ? (<p>❤️ You own this</p>) : (<Link>Add to Collection</Link>) }
+                { ownThis ? (<p>❤️ You own this</p>) : (<button type="button" onClick={e => addButton()}>Add to Collection</button>) }
                 <div id="album-page-details">
                     <ol>
                         {album?.Songs?.map((song) => {
