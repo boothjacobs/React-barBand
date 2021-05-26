@@ -41,10 +41,13 @@ router.delete("/", requireAuth, asyncHandler(async (req, res) => {
         }
     });
 
+
+
     deletedCollection.forEach(async (record) => {
         await record.destroy();
     });
-    return res.json({collectionRelationship});
+
+    return res.json(collectionRelationship);
 }));
 
 

@@ -19,14 +19,13 @@ const CollectionPage = () => {
         dispatch(getCollection(id))
     }, [dispatch, id]);
 
-    const removeButton = async (albumId) => {
-        await dispatch(deleteCollection(+id, albumId));
+    const removeButton = async (albumId, collectionId) => {
+        await dispatch(deleteCollection(+id, albumId, collectionId));
         dispatch(getCollection(id));
         history.push("/");
         history.goBack();
     };
 
-    // console.log("****CollectionPage Component*****", id)
     return (
         <>
             <div id="collection">
@@ -39,7 +38,7 @@ const CollectionPage = () => {
                                     <h4>{album?.Album?.title}</h4>
                                 </div>
                             </Link>
-                            <button className="remove-collection" onClick={(e) => removeButton(album?.Album?.id)}>Remove from Collection</button>
+                            <button className="remove-collection" onClick={(e) => removeButton(album?.Album?.id, album?.id)}>Remove from Collection</button>
                             <OtherCollections albumId={album?.Album?.id} />
                     </div>)}
             </div>

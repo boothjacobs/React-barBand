@@ -21,7 +21,7 @@ const addCollect = (newCollect) => {
 const deleteCollect = (collectionId) => {
     return {
         type: DELETE,
-        collection: collectionId
+        collectionId
     }
 };
 
@@ -29,7 +29,6 @@ const deleteCollect = (collectionId) => {
 export const getCollection = (userId) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}`); //Is this working?
     const collections = await response.json();
-    console.log("====", collections)
 
     dispatch(setCollect(collections))
 };
@@ -49,7 +48,7 @@ export const addCollection = (userId, albumId) => async (dispatch) => {
     dispatch(addCollect(newCollection));
 };
 
-export const deleteCollection = (userId, albumId) => async (dispatch) => {
+export const deleteCollection = (userId, albumId, collectionId) => async (dispatch) => {
     const collectionRelationship = { userId, albumId };
 
     const response = await csrfFetch("/api/collection", {
@@ -60,8 +59,7 @@ export const deleteCollection = (userId, albumId) => async (dispatch) => {
         body: JSON.stringify({collectionRelationship})
     });
     const deletedCollection = await response.json();
-
-    dispatch(deleteCollect(deletedCollection));
+    dispatch(deleteCollect(collectionId));
 };
 
 const initialState = [];
@@ -80,7 +78,7 @@ const collectionReducer = (state = initialState, action) => {
             return plusCollect;
         case DELETE:
             const lessState = {...state};
-            delete lessState[action.deletedCollection];
+            delete lessState[action.collectionId];
             return lessState;
         default:
             return state;
