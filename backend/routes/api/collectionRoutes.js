@@ -11,14 +11,13 @@ const router = express.Router();
 //GET COLLECTION IS IN USER ROUTER
 
 //count collections--ERROR BUG
-router.get("/count", asyncHandler(async(req, res) => {
-    const {albumId} = req.body;
+router.post("/count", asyncHandler(async(req, res) => {
+    const {albumId} = req.body; //how to pass this through GET call?
     const otherCollections = await Collection.count({
         where: {
             'albumId': albumId,
         }
     });
-    console.log("from collection API", otherCollections);
 
     return res.json(otherCollections);
 }));
@@ -36,11 +35,7 @@ router.post("/", requireAuth, asyncHandler(async (req, res) => {
 router.delete("/", requireAuth, asyncHandler(async (req, res) => {
     const { collectionId } = req.body;
 
-    console.log("inside router", collectionId, typeof collectionId)
-
     let deletedCollection = await Collection.findByPk(collectionId);
-
-    console.log("delete router", deletedCollection)
 
     await deletedCollection.destroy();
     return res.json({collectionId});

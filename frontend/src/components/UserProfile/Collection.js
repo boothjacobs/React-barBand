@@ -36,8 +36,8 @@ const CollectionPage = () => {
                                 </div>
                             </Link>
                             <button className="remove-collection" onClick={(e) => removeButton(album?.Album?.id)}>Remove from Collection</button>
-                            {/* <OtherCollections albumId={album?.Album?.id} /> */}
-                        </div>)}
+                            <OtherCollections albumId={album?.Album?.id} />
+                    </div>)}
             </div>
         </>
 

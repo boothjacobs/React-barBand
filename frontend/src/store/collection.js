@@ -59,7 +59,7 @@ export const addCollection = (userId, albumId) => async (dispatch) => {
 };
 
 export const deleteCollection = (collectionId) => async (dispatch) => {
-
+    // const collectionRelationship = { userId, albumId };
     console.log("inside delete thunk", collectionId, typeof collectionId)
 
     const response = await csrfFetch("/api/collection", {
@@ -76,7 +76,15 @@ export const deleteCollection = (collectionId) => async (dispatch) => {
 
 //BROKEN THUNK
 export const countCollections = (albumId) => async (dispatch) => {
-    const response = await fetch("/api/collection/count");
+
+    //how to pass albumId parameter through fetch?
+    const response = await csrfFetch("/api/collection/count", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({albumId: albumId})
+    });
     const otherCollections = await response.json();
 
     dispatch(countCollect(otherCollections));
@@ -98,7 +106,7 @@ const collectionReducer = (state = initialState, action) => {
                 plusCollect[action.collection.id] = action.collection;
             return plusCollect;
         case COUNT:
-            const newState = {...state}; //THIS CASE IS BROKEN
+            const newState = {...state, ...action.count}; //THIS CASE IS BROKEN
             return newState;
         case DELETE:
             const lessState = {...state};
