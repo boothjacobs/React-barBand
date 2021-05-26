@@ -56,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId'
     }
     User.belongsToMany(models.Album, collectionMapping);
+    User.hasMany(models.Collection, { foreignKey: 'userId' });
   };
 
 //instance methods

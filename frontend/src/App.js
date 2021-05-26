@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import * as sessionActions from "./store/session";
 import SearchResults from './components/SearchResults';
 import AlbumPage from './components/AlbumPage';
+import UserProfile from './components/UserProfile';
 
 function App() {
   //restore user logic
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/api/albums/:id">
             <AlbumPage />
+          </Route>
+          <Route path="/api/users/:id">
+            <UserProfile />
           </Route>
         </Switch>
       )}

@@ -77,3 +77,11 @@ h1, h2, h3 {
     max-width: 200px;
     max-height: 200px;
 }
+
+.divider {
+    height: 2px;
+    width: auto;
+    background-color: rgb(58, 58, 58);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
