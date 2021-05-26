@@ -5,12 +5,14 @@ import { sessionReducer } from './session';
 import albumReducer from './album';
 import collectionReducer from './collection';
 import commentReducer from './comment';
+import countReducer from './collectionCount';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     albums: albumReducer,
     collection: collectionReducer,
-    comment: commentReducer
+    comment: commentReducer,
+    count: countReducer
 });
 
 let enhancer;

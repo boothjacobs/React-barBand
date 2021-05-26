@@ -18,8 +18,9 @@ router.post("/count", asyncHandler(async(req, res) => {
             'albumId': albumId,
         }
     });
+    const count = {albumId: albumId, count: otherCollections}
 
-    return res.json(otherCollections);
+    return res.json(count);
 }));
 
 //requireAuth
@@ -31,12 +32,19 @@ router.post("/", requireAuth, asyncHandler(async (req, res) => {
 }));
 
 router.delete("/", requireAuth, asyncHandler(async (req, res) => {
-    const { collectionId } = req.body;
+    const { collectionRelationship } = req.body;
 
-    let deletedCollection = await Collection.findByPk(collectionId);
+    let deletedCollection = await Collection.findAll({
+        where: {
+            "albumId": collectionRelationship.albumId,
+            "userId": collectionRelationship.userId
+        }
+    });
 
-    await deletedCollection.destroy();
-    return res.json({collectionId});
+    deletedCollection.forEach(async (record) => {
+        await record.destroy();
+    });
+    return res.json({collectionRelationship});
 }));
 
 

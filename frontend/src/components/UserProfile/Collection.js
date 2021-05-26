@@ -20,7 +20,7 @@ const CollectionPage = () => {
     }, [dispatch, id]);
 
     const removeButton = async (albumId) => {
-        await dispatch(deleteCollection(albumId));
+        await dispatch(deleteCollection(+id, albumId));
         history.push("/");
         history.goBack();
     };
@@ -39,7 +39,7 @@ const CollectionPage = () => {
                                 </div>
                             </Link>
                             <button className="remove-collection" onClick={(e) => removeButton(album?.Album?.id)}>Remove from Collection</button>
-                            {/* <OtherCollections albumId={album?.Album?.id} /> */}
+                            <OtherCollections albumId={album?.Album?.id} />
                     </div>)}
             </div>
         </>

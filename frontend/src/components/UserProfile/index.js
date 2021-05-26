@@ -24,9 +24,9 @@ const UserProfile = () => {
             <div id="user-profile">
                 <img id="profile-image" alt="user" src={user?.profileImage} />
                 <h1>{user?.username}</h1>
-                <div id="edit-profile-link">
+                {/* <div id="edit-profile-link">
                     <Link>Edit Profile</Link>
-                </div>
+                </div> */}
             </div>
             <div className="divider"></div>
             <Collection />

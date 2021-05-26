@@ -1,20 +1,22 @@
 import {useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import {countCollections} from "../../store/collection";
+import {countCollections} from "../../store/collectionCount";
 
 const OtherCollections = ({albumId}) => {
     const dispatch = useDispatch();
-    const totalCollections = useSelector((state) => state.collections)
+    const totalCollections = useSelector((state) => state.count)
 
-    // console.log("other collections:", albumId, totalCollections)
+    console.log("other collections:", albumId, totalCollections)
 
     useEffect(() => {
         dispatch(countCollections(albumId))
     }, [dispatch, albumId]);
 
     return (
-        <p>appears in {totalCollections ? totalCollections : 0} total collections</p>
+        <div>
+            <p>appears in {totalCollections[albumId] ? totalCollections[albumId] : 0} total collections</p>
+        </div>
     )
 }
 
