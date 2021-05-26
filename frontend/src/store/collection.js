@@ -1,7 +1,7 @@
 import { csrfFetch } from './csrf';
-import { useDispatch } from 'react-redux';
 
 const SET_COLLECTION = 'collection/GET_COLLECTION';
+const COUNT = 'collection/COUNT';
 
 const setCollect = (collections) => {
     return {
@@ -10,19 +10,27 @@ const setCollect = (collections) => {
     }
 };
 
+const countCollect = (count) => {
+    return {
+        type: COUNT,
+        count: count
+    }
+};
+
 //thunk
 export const getCollection = (userId) => async (dispatch) => {
     const response = await fetch(`${userId}`);
     const collections = await response.json();
-    console.log("COLLECTION STORE:", collections)
+    // console.log("COLLECTION STORE:", collections)
     dispatch(setCollect(collections))
 };
 
 export const countCollections = (albumId) => async (dispatch) => {
-    const response = await fetch("/collection-count");
+    const response = await fetch("/collection/count");
     const otherCollections = await response.json();
-    
-}
+
+    dispatch(countCollect(otherCollections));
+};
 
 const initialState = [];
 
@@ -34,6 +42,8 @@ const collectionReducer = (state = initialState, action) => {
             //     newCollect[collection.id] = collection;
             // })
             return newCollect;
+        case COUNT:
+            const newState = {...state, ...action.count}
         default:
             return state;
     }

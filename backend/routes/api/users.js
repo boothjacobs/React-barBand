@@ -53,15 +53,4 @@ router.get("/:id", asyncHandler(async (req, res) => {
   res.json(collections);
 }));
 
-
-
-//count collections
-router.get("/collection-count", asyncHandler(async(req, res) => {
-  const otherCollections = await Collection.count({
-    where: {
-      'albumId': ,
-    }
-  })
-}))
-
 module.exports = router;
