@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 
-import { getCollection } from "../../store/collection";
+import { getCollection, deleteCollection } from "../../store/collection";
 import OtherCollections from "./OtherCollections";
 
 import './CollectionPage.css';
@@ -18,6 +18,10 @@ const CollectionPage = () => {
         dispatch(getCollection(id))
     }, [dispatch, id]);
 
+    const removeButton = async (albumId) => {
+        await dispatch(deleteCollection(albumId));
+    };
+
     // console.log("****CollectionPage Component*****", id)
     return (
         <>
@@ -31,6 +35,7 @@ const CollectionPage = () => {
                                     <h4>{album?.Album?.title}</h4>
                                 </div>
                             </Link>
+                            <button className="remove-collection" onClick={(e) => removeButton(album?.Album?.id)}>Remove from Collection</button>
                             {/* <OtherCollections albumId={album?.Album?.id} /> */}
                         </div>)}
             </div>

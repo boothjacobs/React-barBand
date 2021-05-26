@@ -34,8 +34,16 @@ router.post("/", requireAuth, asyncHandler(async (req, res) => {
 }));
 
 router.delete("/", requireAuth, asyncHandler(async (req, res) => {
-    const { userId, albumId } = req.body; //???? LEGAL?
-    //NOT WRITTEN YET
+    const { collectionId } = req.body;
+
+    console.log("inside router", collectionId, typeof collectionId)
+
+    let deletedCollection = await Collection.findByPk(collectionId);
+
+    console.log("delete router", deletedCollection)
+
+    await deletedCollection.destroy();
+    return res.json({collectionId});
 }));
 
 

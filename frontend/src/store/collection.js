@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const SET_COLLECTION = 'collection/GET_COLLECTION';
 const ADD_COLLECT = 'collection/ADD_COLLECT';
+const DELETE = 'collection/DELETE';
 const COUNT = 'collection/COUNT';
 
 const setCollect = (collections) => {
@@ -15,6 +16,13 @@ const addCollect = (newCollect) => {
     return {
         type: ADD_COLLECT,
         collection: newCollect
+    }
+};
+
+const deleteCollect = (collectionId) => {
+    return {
+        type: DELETE,
+        collection: collectionId
     }
 };
 
@@ -38,8 +46,6 @@ export const getCollection = (userId) => async (dispatch) => {
 export const addCollection = (userId, albumId) => async (dispatch) => {
     const collectionRelationship = { userId, albumId };
 
-    console.log("store add collection pre-fetch", collectionRelationship)
-
     const response = await csrfFetch("/api/collection", {
         method: 'POST',
         headers: {
@@ -49,9 +55,23 @@ export const addCollection = (userId, albumId) => async (dispatch) => {
     });
     const newCollection = await response.json();
 
-    console.log("store Add Collection", newCollection)
-
     dispatch(addCollect(newCollection));
+};
+
+export const deleteCollection = (collectionId) => async (dispatch) => {
+
+    console.log("inside delete thunk", collectionId, typeof collectionId)
+
+    const response = await csrfFetch("/api/collection", {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({collectionId})
+    });
+    const deletedCollection = await response.json();
+
+    dispatch(deleteCollect(deletedCollection));
 };
 
 //BROKEN THUNK
@@ -74,11 +94,16 @@ const collectionReducer = (state = initialState, action) => {
             // })
             return newCollect;
         case ADD_COLLECT:
-            const plusCollect = {...state, ...action.collection};
+            const plusCollect = {...state};
+                plusCollect[action.collection.id] = action.collection;
             return plusCollect;
         case COUNT:
-            const newState = {...state} //THIS CASE IS BROKEN
+            const newState = {...state}; //THIS CASE IS BROKEN
             return newState;
+        case DELETE:
+            const lessState = {...state};
+            delete lessState[action.deletedCollection];
+            return lessState;
         default:
             return state;
     }

@@ -40,3 +40,7 @@
     margin: 10px;
 }
 
+.remove-collection {
+    background-color: darkred;
+    box-shadow: none;
+}

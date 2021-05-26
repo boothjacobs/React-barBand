@@ -7,7 +7,7 @@ const OtherCollections = ({albumId}) => {
     const dispatch = useDispatch();
     const totalCollections = useSelector((state) => state.collections)
 
-    // console.log(totalCollections)
+    // console.log("other collections:", albumId, totalCollections)
 
     useEffect(() => {
         dispatch(countCollections(albumId))
