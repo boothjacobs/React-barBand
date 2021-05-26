@@ -6,20 +6,26 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [
       {
-        email: 'demo@user.io',
         username: 'Demo-lition',
+        email: 'demo@user.io',
+        location: null,
+        bio: null,
         hashedPassword: bcrypt.hashSync('password'),
         profileImage: "https://images.unsplash.com/photo-1621516829665-a5ba55525542?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
       },
       {
-        email: faker.internet.email(),
         username: 'FakeUser1',
+        email: faker.internet.email(),
+        location: null,
+        bio: null,
         hashedPassword: bcrypt.hashSync('password'),
         profileImage: "https://images.unsplash.com/photo-1618397364665-fe3f5fe96ca5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
       },
       {
-        email: faker.internet.email(),
         username: 'FakeUser2',
+        email: faker.internet.email(),
+        location: null,
+        bio: null,
         hashedPassword: bcrypt.hashSync('password'),
         profileImage: "https://images.unsplash.com/photo-1613425757001-dc238f3a077d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=654&q=80"
       },

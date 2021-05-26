@@ -23,6 +23,12 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 200]
       }
     },
+    location: {
+      type: DataTypes.STRING,
+    },
+    bio: {
+      type: DataTypes.STRING,
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
