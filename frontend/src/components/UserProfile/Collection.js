@@ -21,6 +21,7 @@ const CollectionPage = () => {
 
     const removeButton = async (albumId) => {
         await dispatch(deleteCollection(+id, albumId));
+        dispatch(getCollection(id));
         history.push("/");
         history.goBack();
     };

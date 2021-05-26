@@ -10,7 +10,7 @@ const router = express.Router();
 
 //GET COLLECTION IS IN USER ROUTER
 
-//count collections--ERROR BUG
+//count collections
 router.post("/count", asyncHandler(async(req, res) => {
     const {albumId} = req.body; //how to pass this through GET call?
     const otherCollections = await Collection.count({

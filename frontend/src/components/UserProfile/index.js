@@ -13,6 +13,7 @@ const UserProfile = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const records = useSelector((state) => Object.values(state.collection));
+    const sessionUser = useSelector(state => state.session.user);
     const user = records[0]?.User;
 
     useEffect(() => {
@@ -22,11 +23,15 @@ const UserProfile = () => {
     return (
         <>
             <div id="user-profile">
-                <img id="profile-image" alt="user" src={user?.profileImage} />
-                <h1>{user?.username}</h1>
-                {/* <div id="edit-profile-link">
+                <div>
+                    <img id="profile-image" alt="user" src={user?.profileImage} />
+                </div>
+                <div>
+                    <h1>{user?.username}</h1>
+                </div>
+                {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
                     <Link>Edit Profile</Link>
-                </div> */}
+                </div>) : null}
             </div>
             <div className="divider"></div>
             <Collection />
