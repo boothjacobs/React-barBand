@@ -12,7 +12,7 @@ const router = express.Router();
 
 //count collections
 router.post("/count", asyncHandler(async(req, res) => {
-    const {albumId} = req.body; //how to pass this through GET call?
+    const {albumId} = req.body; 
     const otherCollections = await Collection.count({
         where: {
             'albumId': albumId,

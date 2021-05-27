@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { editComment, deleteComment } from "../../store/comment";
 import "./comment.css";
-import CommentForm from "./CommentBox";
 
 const Comment = ({album, comment, user}) => {
     const dispatch = useDispatch();
@@ -19,14 +18,12 @@ const Comment = ({album, comment, user}) => {
     const commentEditVerb = async (e) => {
         e.preventDefault();
 
-        // console.log("comment component", commentEdit);
-        let editedComment = await dispatch(editComment(albumId, commId, commentEdit));
+        await dispatch(editComment(albumId, commId, commentEdit));
         history.push("/");
         history.goBack();
     };
     const commentDelete = async (e) => {
-        // console.log(albumId, commId)
-        let deletedComment = await dispatch(deleteComment(albumId, commId));
+        await dispatch(deleteComment(albumId, commId));
         history.push("/");
         history.goBack();
     };

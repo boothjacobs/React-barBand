@@ -12,7 +12,6 @@ const CollectionPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const records = useSelector((state) => Object.values(state.collection));
-    // const sessionUser = useSelector(state => state.session.user);
 
     const history = useHistory();
     useEffect(() => {

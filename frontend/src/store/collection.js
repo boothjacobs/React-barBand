@@ -27,7 +27,7 @@ const deleteCollect = (collectionId) => {
 
 //thunk
 export const getCollection = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/users/${userId}`); //Is this working?
+    const response = await fetch(`/api/users/${userId}`); 
     const collections = await response.json();
 
     dispatch(setCollect(collections))
@@ -58,7 +58,7 @@ export const deleteCollection = (userId, albumId, collectionId) => async (dispat
         },
         body: JSON.stringify({collectionRelationship})
     });
-    const deletedCollection = await response.json();
+    await response.json();
     dispatch(deleteCollect(collectionId));
 };
 

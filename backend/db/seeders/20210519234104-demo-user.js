@@ -7,51 +7,51 @@ module.exports = {
     return queryInterface.bulkInsert('Users', [
       {
         username: 'Demo-lition',
-        email: 'demo@user.io',
+        email: 'Evan.Monahan8@hotmail.com',
         location: null,
         bio: null,
         hashedPassword: bcrypt.hashSync('password'),
-        profileImage: "https://images.unsplash.com/photo-1621516829665-a5ba55525542?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+        profileImage: "https://cdn.fakercloud.com/avatars/dudestein_128.jpg"
       },
       {
         username: 'Bruce',
-        email: 'demo@user.io',
+        email: 'Johnathan0@hotmail.com',
         location: 'Hoegermouth, CO',
         bio: 'Voluptates sit praesentium eos.',
         hashedPassword: bcrypt.hashSync('password'),
         profileImage: "https://www.insidehook.com/wp-content/uploads/2016/10/Springsteen-2_1200-e1477589531774-1-1.jpg?fit=857%2C1200"
       },
       {
-        username: 'Demo-lition',
-        email: faker.internet.email(),
+        username: 'Jazmyn57',
+        email: 'Wilfrid69@hotmail.com',
         location: 'South Maximo, MN',
         bio: null,
         hashedPassword: bcrypt.hashSync('password'),
-        profileImage: faker.internet.avatar()
+        profileImage: 'https://cdn.fakercloud.com/avatars/llun_128.jpg'
       },
       {
-        username: 'Demo-lition',
-        email: faker.internet.email(),
+        username: 'Lamar.Homenick',
+        email: 'Wava.Beier15@yahoo.com',
         location: 'North Kyleightown, IA',
         bio: 'Perferendis minus qui.',
         hashedPassword: bcrypt.hashSync('password'),
-        profileImage: faker.internet.avatar()
+        profileImage: 'https://cdn.fakercloud.com/avatars/hugomano_128.jpg'
       },
       {
         username: 'FakeUser1',
-        email: faker.internet.email(),
+        email: 'Candelario.Bayer@hotmail.com',
         location: null,
         bio: null,
         hashedPassword: bcrypt.hashSync('password'),
-        profileImage: "https://images.unsplash.com/photo-1618397364665-fe3f5fe96ca5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+        profileImage: "https://cdn.fakercloud.com/avatars/S0ufi4n3_128.jpg"
       },
       {
-        username: 'FakeUser2',
-        email: faker.internet.email(),
+        username: 'Forest.Hills',
+        email: 'Precious_Schiller@yahoo.com',
         location: null,
         bio: 'Aut maiores sapiente quae earum ducimus magni occaecati totam iste.',
         hashedPassword: bcrypt.hashSync('password'),
-        profileImage: "https://images.unsplash.com/photo-1613425757001-dc238f3a077d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=654&q=80"
+        profileImage: "https://cdn.fakercloud.com/avatars/horaciobella_128.jpg"
       },
     ], {});
   },

@@ -19,12 +19,10 @@ module.exports = {
         unique: true
       },
       location: {
-        type: Sequelize.STRING(200),
-        allowNull: true
+        type: Sequelize.STRING(200)
       },
       bio: {
-        type: Sequelize.STRING(500),
-        allowNull: true
+        type: Sequelize.TEXT
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,

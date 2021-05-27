@@ -51,16 +51,13 @@ router.post("/:id/comments", requireAuth, asyncHandler(async (req, res) => {
 
 //edit a comment
 router.put("/:id/comments/:commId", requireAuth, asyncHandler(async (req, res) => {
-    // const albumId = req.params.id;
     const commentId = req.params.commId;
     const { body } = req.body;
-    // console.log("API REQ BODY", body)
 
     const comment = await Comment.findByPk(commentId);
     comment.update({
         body: body
     });
-    // console.log("API COMMENT EDIT", comment)
     return res.json(comment);
 }));
 

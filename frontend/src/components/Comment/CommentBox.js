@@ -14,12 +14,12 @@ const CommentForm = () => {
     const history = useHistory();
     useEffect(() => {
         dispatch(getComments(id));
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = { body };
-        let newComment = await dispatch(postComment(id, payload));
+        await dispatch(postComment(id, payload));
         history.push("/");
         history.goBack();
     };
