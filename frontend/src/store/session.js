@@ -32,6 +32,17 @@ export const login = (user) => async (dispatch) => {
     const data = await response.json();
     dispatch(setUser(data.user));
     return response;
+};
+
+//demo user login
+export const demoLogin = () => async (dispatch) => {
+    const response = await csrfFetch('/api/session/demo', {
+        method: 'POST'
+    });
+    const data = await response.json();
+    dispatch(setUser(data.demoUser));
+    console.log(data)
+    return response;
 }
 
 //sign up using API route

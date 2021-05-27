@@ -1,12 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import {demoLogin} from "../../store/session";
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
 
 const Navigation = ({isLoaded}) => {
     const sessionUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+
+    const demoButton = async (e) => {
+      e.preventDefault();
+      await dispatch(demoLogin());
+
+      if (sessionUser) return (
+        <Redirect to="/" />
+      );
+    }
 
     let sessionLinks;
     if (sessionUser) {
@@ -17,8 +28,8 @@ const Navigation = ({isLoaded}) => {
       sessionLinks = (
         <>
           <div className="nav-links">
-            <button type="button">
-              <Link to="">Demo User </Link>
+            <button type="button" onClick={demoButton}>
+              Demo User
             </button>
           </div>
           <div className="nav-links">

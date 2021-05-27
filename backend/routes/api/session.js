@@ -33,7 +33,6 @@ router.post('/', validateLogin, asyncHandler(async (req, res, next) => {
         err.errors = ['The provided credentials were invalid.'];
         return next(err);
       }
-
       await setTokenCookie(res, user);
 
       return res.json({
@@ -41,6 +40,16 @@ router.post('/', validateLogin, asyncHandler(async (req, res, next) => {
       });
     }),
 );
+
+//demo login
+router.post('/demo', asyncHandler(async (req, res) => {
+  const demoUser = await User.findByPk(2);
+  await setTokenCookie(res, demoUser);
+
+  return res.json({
+    demoUser,
+  });
+}));
 
 // Log out
 router.delete('/', (_req, res) => {
