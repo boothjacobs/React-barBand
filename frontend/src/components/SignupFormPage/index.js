@@ -12,6 +12,8 @@ const SignupFormPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    const [bio, setBio] = useState("");
+    const [location, setLocation] = useState("");
     const [confPassword, setConfPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
@@ -26,7 +28,7 @@ const SignupFormPage = () => {
             window.alert("Confirmed password must match password.")
         } else {
             setErrors([]);
-            return dispatch(sessionActions.signup({ username, email, password }))
+            return dispatch(sessionActions.signup({ username, email, location, bio, password }))
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
@@ -45,26 +47,32 @@ const SignupFormPage = () => {
                         <div className="form-field">
                             <label htmlFor="username"> Username </label>
                                 <input type="text" value={username} name="username" required
-                                    onChange={(e) => setUsername(e.target.value)}
-                                />
+                                    onChange={(e) => setUsername(e.target.value)}/>
                         </div>
                         <div className="form-field">
                             <label htmlFor="email"> Email </label>
                                 <input type="email" value={email} name="email" required
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
+                                    onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="form-field">
                             <label htmlFor="password"> Password</label>
                                 <input type="password" value={password} name="password" required
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
+                                    onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                         <div className="form-field">
                             <label> Confirm password </label>
                                 <input type="password" value={confPassword} required
-                                    onChange={(e) => setConfPassword(e.target.value)}
-                                />
+                                    onChange={(e) => setConfPassword(e.target.value)}/>
+                        </div>
+                        <div className="form-field">
+                            <label htmlFor="location"> Location </label>
+                                <input type="text" value={location} name="location"
+                                    onChange={(e) => setLocation(e.target.value)}/>
+                        </div>
+                        <div className="form-field">
+                            <label htmlFor="bio"> Bio: </label>
+                                <textarea value={bio} name="bio"
+                                    onChange={(e) => setBio(e.target.value)}/>
                         </div>
                     <div className="form-field">
                         <button className="login-button">Sign Up</button>
