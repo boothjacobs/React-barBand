@@ -28,9 +28,9 @@ const UserProfile = () => {
                 <div>
                     <h1>{user?.username}</h1>
                 </div>
-                {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
+                {/* {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
                     <Link>Edit Profile</Link>
-                </div>) : null}
+                </div>) : null} */}
             </div>
             <div className="divider"></div>
             <Collection />

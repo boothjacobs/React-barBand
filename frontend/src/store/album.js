@@ -19,9 +19,9 @@ const oneAlbum = (album) => ({
 export const getAlbums = () => async (dispatch) => {
     const res = await fetch("/api/albums");
     if (res.ok) {
-        const albums = await res.json();
+        const recordings = await res.json();
 
-        dispatch(setAlbums(albums));
+        dispatch(setAlbums(recordings));
     } else {
         console.log(res.statusText);
     }
@@ -38,12 +38,14 @@ export const getAlbumPage = (albumId) => async (dispatch) => {
     }
 };
 
+//SEARCH
 export const searchAlbums = (searchTerm, searchBy) => async (dispatch) => {
     const res = await csrfFetch("/api/search", {
         method: 'POST',
         body: JSON.stringify({searchTerm, searchBy})
     })
     const data = await res.json();
+    console.log("STORE search results:::::::", data)
     dispatch(setAlbums(data));
 }
 

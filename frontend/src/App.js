@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import * as sessionActions from "./store/session";
 import SearchResults from './components/SearchResults';
 import AlbumPage from './components/AlbumPage';
+import Home from "./components/Home"
 import UserProfile from './components/UserProfile';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <SearchResults />
+            <Home />
           </Route>
           <Route path="/login">
             <LoginFormPage />
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/api/users/:id">
             <UserProfile />
+          </Route>
+          <Route path="/search-results">
+            <SearchResults />
           </Route>
         </Switch>
       )}
