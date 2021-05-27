@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 //Define action types
 const SET_ALBUMS = 'albums/SET_ALBUMS';
 const ONE_ALBUM = 'albums/ONE_ALBUM';
@@ -29,12 +31,21 @@ export const getAlbumPage = (albumId) => async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}`);
     if (res.ok) {
         const album = await res.json();
-       
+
         dispatch(oneAlbum(album))
     } else {
         console.log(res);
     }
 };
+
+export const searchAlbums = (searchTerm, searchBy) => async (dispatch) => {
+    const res = await csrfFetch("/api/search", {
+        method: 'POST',
+        body: JSON.stringify({searchTerm, searchBy})
+    })
+    const data = await res.json();
+    dispatch(setAlbums(data));
+}
 
 const initialState = {};
 

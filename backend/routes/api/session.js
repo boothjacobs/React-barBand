@@ -43,6 +43,7 @@ router.post('/', validateLogin, asyncHandler(async (req, res, next) => {
 
 //demo login
 router.post('/demo', asyncHandler(async (req, res) => {
+  //lookup any user from your seed data
   const demoUser = await User.findByPk(2);
   await setTokenCookie(res, demoUser);
 

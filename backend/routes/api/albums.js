@@ -8,8 +8,7 @@ const { requireAuth } = require('../../utils/auth');
 
 //route for /api/albums
 router.get("", asyncHandler(async (req, res) => {
-    const albums = await Album.findAll({
-});
+    const albums = await Album.findAll({});
     return res.json(albums);
 }));
 
