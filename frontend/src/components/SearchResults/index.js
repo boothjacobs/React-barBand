@@ -8,9 +8,7 @@ const SearchResults = () => {
     const dispatch = useDispatch();
     const albums = useSelector((state) => Object.values(state.albums));
 
-    useEffect(() => {
-        dispatch(getAlbums())
-    }, [dispatch]);
+    // no useEffect because i don't want to re-get albums since the redirect
 
     if (albums[0]?.description) {
         return (

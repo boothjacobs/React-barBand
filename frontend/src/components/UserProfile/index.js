@@ -42,8 +42,6 @@ const UserProfile = () => {
                         <h3>Sorry, friend, you don't have a collection yet!</h3>
                     </div>)}
 
-
-
             <div className="divider"></div>
             <Collection />
         </>

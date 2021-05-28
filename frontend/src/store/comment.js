@@ -50,7 +50,6 @@ export const editComment = (albumId, commentId, body) => async (dispatch) => {
     });
     const comment = await response.json();
     dispatch(setComment(comment));
-    // console.log("COMMENT STORE EDIT THUNK", comment)
     return comment;
 };
 

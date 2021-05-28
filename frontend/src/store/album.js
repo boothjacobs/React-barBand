@@ -38,7 +38,6 @@ export const getAlbumPage = (albumId) => async (dispatch) => {
 
 //SEARCH
 export const searchAlbums = (searchTerm, searchBy) => async (dispatch) => {
-    console.log(searchTerm, searchBy)
 
     const res = await csrfFetch("/api/search", {
         method: 'POST',
