@@ -37,3 +37,8 @@
 #album-page-comment-form {
     margin: 10px;
 }
+
+#collection-status {
+    display: flex;
+    justify-content: center;
+}

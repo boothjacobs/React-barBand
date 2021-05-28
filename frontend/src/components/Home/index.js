@@ -14,7 +14,7 @@ const Home = () => {
                 <p>Create an account to build a collection of your own and leave comments on your favorite tribute albums.</p>
                 <p>Search by song title, recording artist, original artist, or album, or browse by any of those categories.</p>
             </div>
-            <div>
+            <div id="about">
                 <AboutBarBand />
             </div>
         </>

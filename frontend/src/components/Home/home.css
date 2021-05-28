@@ -3,9 +3,13 @@ header centered
 ps max-width*/
 #home-heading {
     text-align: center;
+    background-color: white;
+    border: 1px solid rgb(58, 58, 58);
+    width: 75%;
+    margin: auto;
 }
 
-#home-text {
+#home-text, #about {
     text-align: center;
     margin: 10px;
 }

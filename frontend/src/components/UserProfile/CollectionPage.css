@@ -1,9 +1,10 @@
 #collection {
     display: flex;
     flex-flow: row wrap;
+}
     /* grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto; */
-}
+
 
 .collection-album-display {
     display: flex;

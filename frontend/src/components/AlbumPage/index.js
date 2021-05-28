@@ -33,8 +33,10 @@ const AlbumPage = () => {
         <div id="album-page">
             <h1 id="album-page-title">{album?.title}</h1>
             <div id="album-page-text">
-                <div id="music-player"></div>
-                { ownThis ? (<p>❤️ You own this</p>) : (<button type="button" onClick={e => addButton()}>Add to Collection</button>) }
+                <div id="collection-status">
+                    {/* <div id="music-player"></div> */}
+                    { ownThis ? (<p>❤️ You own this</p>) : (<button type="button" onClick={e => addButton()}>Add to Collection</button>) }
+                </div>
                 <div id="album-page-details">
                     <ol>
                         {album?.Songs?.map((song) => {

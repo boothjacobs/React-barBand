@@ -25,15 +25,15 @@ const CommentForm = () => {
     };
 
     return (
-        <div className="comment-form">
-            <form onSubmit={handleSubmit}>
-                <textarea
-                    placeholder="Why do you love this album?"
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)} />
-                <button type="submit">Post</button>
+        <form onSubmit={handleSubmit}>
+                <div className="comment-form">
+                        <textarea
+                            placeholder="Why do you love this album?"
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)} />
+                        <button id="comment-button" type="submit">Post</button>
+                </div>
             </form>
-        </div>
     )
 }
 

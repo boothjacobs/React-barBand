@@ -35,7 +35,8 @@ const SearchBar = () => {
 
                 {/* <div className="search-bar-item"> */}
                     <select name="search-by" onChange={e => setSearchBy(e.target.value)}>
-                        <option value="original-artist" defaultValue>Original Artist</option>
+                        <option value="null">--Select to Browse--</option>
+                        <option value="original-artist">Original Artist</option>
                         <option value="artist">Recording Artist</option>
                         <option value="song">Song</option>
                         <option value="album">Album</option>

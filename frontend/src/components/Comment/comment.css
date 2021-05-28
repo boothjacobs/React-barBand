@@ -25,6 +25,17 @@
         /* border: 1px solid white; */
     }
 
+    .comment-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #comment-button {
+        margin: 2px 10px;
+    }
+
 
 
 }
