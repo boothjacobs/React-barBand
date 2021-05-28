@@ -20,7 +20,6 @@ export const getAlbums = () => async (dispatch) => {
     const res = await fetch("/api/albums");
     if (res.ok) {
         const recordings = await res.json();
-
         dispatch(setAlbums(recordings));
     } else {
         console.log(res.statusText);
@@ -31,7 +30,6 @@ export const getAlbumPage = (albumId) => async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}`);
     if (res.ok) {
         const album = await res.json();
-
         dispatch(oneAlbum(album))
     } else {
         console.log(res);
@@ -40,13 +38,18 @@ export const getAlbumPage = (albumId) => async (dispatch) => {
 
 //SEARCH
 export const searchAlbums = (searchTerm, searchBy) => async (dispatch) => {
+    console.log(searchTerm, searchBy)
+
     const res = await csrfFetch("/api/search", {
         method: 'POST',
         body: JSON.stringify({searchTerm, searchBy})
-    })
-    const data = await res.json();
-    console.log("STORE search results:::::::", data)
-    dispatch(setAlbums(data));
+    });
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(setAlbums(data));
+    } else {
+        console.log(res.statusText)
+    }
 }
 
 const initialState = {};

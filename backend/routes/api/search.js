@@ -15,40 +15,39 @@ router.post('/', asyncHandler(async (req, res, next) => {
     // console.log(typeof searchTerm, searchTerm, typeof searchBy, searchBy)
     if (searchBy === "album" && searchTerm) {
         recording = await Album.findAll({
-            // include: { model: Song, include: Artist },
+            include: { model: Song, include: Artist },
             where: { title: { [Op.iLike]: '%' + searchTerm + '%' } }
         })
     } else if (searchBy === "album" && !searchTerm) {
         recording = await Album.findAll({
-            // include: { model: Song, include: Artist }
+            include: { model: Song, include: Artist }
         })
     } else if (searchBy === "song" && searchTerm) {
         recording = await Song.findAll({
-            // include: { model: Album, include: Artist },
+            include: Artist,
             where: { title: { [Op.iLike]: '%' + searchTerm + '%' } }
         })
     } else if (searchBy === "song" && !searchTerm) {
         recording = await Song.findAll({
-            // include: { model: Album, include: Artist }
+            include: { model: Album, include: Artist }
         })
     } else if (searchBy === "original-artist" && searchTerm) {
         recording = await Song.findAll({
-            // include: { model: Song, include: Artist },
+            include: Artist,
             where: { originalArtist: { [Op.iLike]: '%' + searchTerm + '%' } }
         })
     } else if (searchBy === "original-artist" && !searchTerm) {
         recording = await Song.findAll({
-           //Display a list of song.originalArtist only????
             where: { originalArtist: { [Op.iLike]: '%' + searchTerm + '%' } }
         })
     } else if (searchBy === "artist" && searchTerm) {
         recording = await Artist.findAll({
-            // include: { model: Song, include: Album },
+            include: { model: Song, include: Album },
             where: { name: { [Op.iLike]: '%' + searchTerm + '%' } }
         })
     } else if (searchBy === "artist" && !searchTerm) {
         recording = await Artist.findAll({
-            // include: Song
+            include: Song
         })
     }
 

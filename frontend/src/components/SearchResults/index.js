@@ -32,8 +32,9 @@ const SearchResults = () => {
                 {albums.map((song) => <div className="list-song-info" key={song.id}>
                         <div className="list-song-text">
                             <h3>{song.title}</h3>
-                            <p>{song.artistId}</p>
-                            <Link to={`/api/albums/${song.albumId}`}>{song.albumId}</Link>
+                            <p>{song.Artist.name}</p>
+                            <p>Originally recorded by {song.originalArtist}</p>
+                            <Link to={`/api/albums/${song.albumId}`}>Appears On</Link>
                         </div>
                     </div>)}
             </div>
@@ -48,6 +49,10 @@ const SearchResults = () => {
                         </div>
                     </div>)}
             </div>
+        )
+    } else {
+        return (
+            <h3>Nothing yet!</h3>
         )
     }
 

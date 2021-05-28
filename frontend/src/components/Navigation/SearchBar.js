@@ -20,7 +20,7 @@ const SearchBar = () => {
     const searchSubmit = async (e) => {
         e.preventDefault();
         let searchResult = await dispatch(searchAlbums(searchTerm, searchBy));
-        if (searchResult) return (<Redirect to="/search-results" />)
+        return (<Redirect to="/search-results" />);
     };
 
     return (
