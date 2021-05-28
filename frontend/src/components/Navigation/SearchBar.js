@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {searchAlbums, getAlbums} from "../../store/album";
 import './Navigation.css';
@@ -7,7 +7,7 @@ import './Navigation.css';
 
 const SearchBar = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const albums = useSelector((state) => Object.values(state.albums));
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -20,9 +20,7 @@ const SearchBar = () => {
     const searchSubmit = async (e) => {
         e.preventDefault();
         let searchResult = await dispatch(searchAlbums(searchTerm, searchBy));
-        if (searchResult) {
-            history.push("/search-results");
-        }
+        if (searchResult) return (<Redirect to="/search-results" />)
     };
 
     return (
