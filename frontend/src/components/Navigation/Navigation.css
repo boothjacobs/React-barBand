@@ -13,6 +13,12 @@ nav {
     padding: 5px 5px;
 }
 
+#search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 #session-links {
     display: inline-block;
     padding: 0px 5px;

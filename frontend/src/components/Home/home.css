@@ -1,3 +1,11 @@
 /* header > p grayed out
 header centered
 ps max-width*/
+#home-heading {
+    text-align: center;
+}
+
+#home-text {
+    text-align: center;
+    margin: 10px;
+}

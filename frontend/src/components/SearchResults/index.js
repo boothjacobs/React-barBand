@@ -3,6 +3,7 @@ import {useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import { getAlbums } from "../../store/album";
+import "./search.css";
 
 const SearchResults = () => {
     const dispatch = useDispatch();
@@ -12,12 +13,12 @@ const SearchResults = () => {
 
     if (albums[0]?.description) {
         return (
-            <div className="album-list">
+            <div className="result-list">
                 {albums.map((album) => <div className="list-album-info" key={album.id}>
                         <Link to={`/api/albums/${album.id}`}>
                             <img className="list-img" src={album.imgUrl} alt="album cover" />
                         </Link>
-                        <div className="list-album-text">
+                        <div className="list-text">
                             <h3>{album.title}</h3>
                             <p>{album.description}</p>
                         </div>
@@ -26,9 +27,9 @@ const SearchResults = () => {
         )
     } else if (albums[0]?.originalArtist) {
         return (
-            <div className="song-list">
+            <div className="result-list">
                 {albums.map((song) => <div className="list-song-info" key={song.id}>
-                        <div className="list-song-text">
+                        <div className="list-text">
                             <h3>{song.title}</h3>
                             <p>{song.Artist.name}</p>
                             <p>Originally recorded by {song.originalArtist}</p>
@@ -39,9 +40,9 @@ const SearchResults = () => {
         )
     } else if (albums[0]?.location) {
         return (
-            <div className="artist-list">
+            <div className="result-list">
                 {albums.map((artist) => <div className="list-artist-info" key={artist.id}>
-                        <div className="list-artist-text">
+                        <div className="list-text">
                             <h3>{artist.name}</h3>
                             <p>{artist.location}</p>
                         </div>

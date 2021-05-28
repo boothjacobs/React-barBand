@@ -51,33 +51,6 @@ h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
 }
 
-.album-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.list-album-info {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10px;
-    padding: 5px;
-}
-
-.list-album-text {
-    margin: 10px;
-    padding: 5px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.list-img {
-    width: 100%;
-    max-width: 200px;
-    max-height: 200px;
-}
-
 .divider {
     height: 2px;
     width: auto;

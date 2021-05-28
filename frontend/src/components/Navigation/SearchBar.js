@@ -24,19 +24,29 @@ const SearchBar = () => {
     };
 
     return (
-        <form onSubmit={searchSubmit} >
-            <input type="search" name="search-term" id="search-input"
-                value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)}
-                placeholder="Search and discover music" size="25"/>
-            <select name="search-by" onChange={e => setSearchBy(e.target.value)}>
-                <option value="original-artist" defaultValue>Original Artist</option>
-                <option value="artist">Recording Artist</option>
-                <option value="song">Song</option>
-                <option value="album">Album</option>
-            </select>
-            <button>Go</button>
-        </form>
+        <div id="search-bar">
+            <form onSubmit={searchSubmit} >
+                {/* <div className="search-bar-item"> */}
+                    <input type="search" name="search-term" id="search-input"
+                        value={searchTerm}
+                        onChange={e => setSearchTerm(e.target.value)}
+                        placeholder="Search and discover music" size="25"/>
+                {/* </div> */}
+
+                {/* <div className="search-bar-item"> */}
+                    <select name="search-by" onChange={e => setSearchBy(e.target.value)}>
+                        <option value="original-artist" defaultValue>Original Artist</option>
+                        <option value="artist">Recording Artist</option>
+                        <option value="song">Song</option>
+                        <option value="album">Album</option>
+                    </select>
+                {/* </div> */}
+                {/* <div className="search-bar-item"> */}
+                    <button>Go</button>
+                {/* </div> */}
+            </form>
+        </div>
+
     )
 }
 

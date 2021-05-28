@@ -48,6 +48,7 @@ const Navigation = ({isLoaded}) => {
     }
 
     return (
+      <div>
         <nav>
             <div className="nav-links" id="nav-home-link">
               <button type="button">
@@ -60,8 +61,9 @@ const Navigation = ({isLoaded}) => {
             <div id="session-links">
               {isLoaded && sessionLinks}
             </div>
-            <div className="divider"></div>
         </nav>
+        <div className="divider"></div>
+      </div>
     );
 
 }
