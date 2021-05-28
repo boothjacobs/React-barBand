@@ -1,11 +1,6 @@
 
 #signup-page {
     display: flex;
-    background-image: url("../../images/bar-ext.jpeg");
-    height: 100vh;
-    width: 100vw;
-    background-clip: border-box;
-    background-size: cover;
 }
 
 .signup-form {
@@ -15,9 +10,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.25);
     box-shadow: 0px 0px 15px darkgrey;
     border-radius: 10px;
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
+        url("../../images/bar-ext.jpeg");
+    background-clip: border-box;
+    background-size: cover; */
 }
 
 .form-field {

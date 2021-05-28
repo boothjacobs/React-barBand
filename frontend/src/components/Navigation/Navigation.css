@@ -25,7 +25,8 @@ nav {
 }
 
 .profile-dropdown {
-    background-color: rgb(85, 85, 85);
+    border: 1px solid rgb(211, 211, 211);
+    background-color: white;
     border-radius: 5px;
 }
 
@@ -33,4 +34,12 @@ nav {
     font-size: .75em;
     padding: 3px;
     text-align: center;
+}
+
+.profile-dropdown a {
+    color: #3cacd8;
+}
+
+nav a {
+    color: #eeebdd;
 }

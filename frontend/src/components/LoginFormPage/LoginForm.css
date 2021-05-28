@@ -1,15 +1,5 @@
 #login-page {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    z-index: 0;
     display: flex;
-    background-image: linear-gradient(rgba(56, 64, 102, 0.5), rgba(0, 0, 0, 0.5)),
-                    url("../../images/music.jpeg");
-    height: 100vh;
-    width: 100vw;
-    background-clip: border-box;
-    background-size: cover;
 }
 
 .login-form {
@@ -19,9 +9,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.25);
     box-shadow: 0px 0px 15px darkgrey;
     border-radius: 10px;
+    /* background-image: url("../../images/bar-ext.jpeg");
+    background-clip: border-box;
+    background-size: cover; */
 }
 
 .form-field {
