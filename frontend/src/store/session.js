@@ -20,6 +20,7 @@ const removeUser = () => {
     }
 };
 
+
 //call the API to login, then set session user from response
 export const login = (user) => async (dispatch) => {
     const {credential, password} = user;
@@ -71,7 +72,7 @@ export const restoreUser = () => async dispatch => {
     const data = await response.json();
     dispatch(setUser(data.user));
 
-    return response;
+    return data.user;
 };
 
 //remove session user by clearing token cookie

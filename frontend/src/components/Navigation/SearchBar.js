@@ -7,7 +7,7 @@ import './Navigation.css';
 
 const SearchBar = () => {
     const dispatch = useDispatch();
-    // const history = useHistory();
+    const history = useHistory();
     const albums = useSelector((state) => Object.values(state.albums));
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -20,7 +20,7 @@ const SearchBar = () => {
     const searchSubmit = async (e) => {
         e.preventDefault();
         let searchResult = await dispatch(searchAlbums(searchTerm, searchBy));
-        return (<Redirect to="/search-results" />);
+        history.push("/search-results");
     };
 
     return (

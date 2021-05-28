@@ -13,7 +13,8 @@ const UserProfile = () => {
     const { id } = useParams();
     const records = useSelector((state) => Object.values(state.collection));
     const sessionUser = useSelector(state => state.session.user);
-    const user = records[0]?.User;
+    let user = records[0]?.User;
+    //currently using the association on Collection to get the user info related to the page (without a second database call)
 
     useEffect(() => {
         dispatch(getCollection(id))
@@ -21,17 +22,28 @@ const UserProfile = () => {
 
     return (
         <>
-            <div id="user-profile">
-                <div>
-                    <img id="profile-image" alt="user" src={user?.profileImage} />
-                </div>
-                <div>
-                    <h1>{user?.username}</h1>
-                </div>
-                {/* {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
-                    <Link>Edit Profile</Link>
-                </div>) : null} */}
-            </div>
+            {user ? (<div id="user-profile">
+                    <div>
+                        <img id="profile-image" alt="user" src={user?.profileImage} />
+                    </div>
+                    <div>
+                        <h1>{user?.username}</h1>
+                    </div>
+                    <div>
+                        <p>{user?.location}</p>
+                        <p>{user?.bio}</p>
+                    </div>
+                    {/* {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
+                        <Link>Edit Profile</Link>
+                    </div>) : null}
+                    EDIT PROFILE HAS NO BACKEND    */}
+                </div>) : (
+                    <div id="conditional-user-profile">
+                        <h3>Sorry, friend, you don't have a collection yet!</h3>
+                    </div>)}
+
+
+
             <div className="divider"></div>
             <Collection />
         </>
