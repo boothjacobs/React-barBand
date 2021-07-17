@@ -1,6 +1,7 @@
 
 #signup-page {
     display: flex;
+    margin-top: 100px;
 }
 
 .signup-form {
@@ -10,13 +11,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.25);
-    box-shadow: 0px 0px 15px darkgrey;
-    border-radius: 10px;
-    /* background-image: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)),
-        url("../../images/bar-ext.jpeg");
-    background-clip: border-box;
-    background-size: cover; */
+}
+
+.auth-form {
+    border-top: dotted darkgray 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .form-field {
@@ -25,5 +26,9 @@
 }
 
 .form-field > input {
+    margin: 0px 10px;
+}
+
+.form-field > textarea {
     margin: 0px 10px;
 }

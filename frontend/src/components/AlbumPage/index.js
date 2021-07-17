@@ -31,8 +31,8 @@ const AlbumPage = () => {
 
     return (
         <div id="album-page">
-            <h1 id="album-page-title">{album?.title}</h1>
             <div id="album-page-text">
+                <h1 id="album-page-title">{album?.title}</h1>
                 <div id="collection-status">
                     {/* <div id="music-player"></div> */}
                     { ownThis ? (<p>❤️ You own this</p>) : (<button type="button" onClick={e => addButton()}>Add to Collection</button>) }

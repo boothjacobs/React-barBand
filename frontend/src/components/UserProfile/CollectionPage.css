@@ -2,9 +2,6 @@
     display: flex;
     flex-flow: row wrap;
 }
-    /* grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto; */
-
 
 .collection-album-display {
     display: flex;
@@ -14,8 +11,9 @@
     width: 300px;
     height: 400px;
     padding: 10px;
-    margin: auto;
+    margin: 15px;
     text-align: center;
+    background-color: white;
 }
 
 .collection-album-display:hover {
@@ -23,6 +21,7 @@
 }
 
 #user-profile {
+    background-color: white;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -31,6 +30,7 @@
     width: 100vw;
     padding: 30px;
     margin: auto;
+    margin-top: 100px;
 }
 
 #profile-image {

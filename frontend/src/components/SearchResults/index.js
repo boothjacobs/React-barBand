@@ -26,6 +26,7 @@ const SearchResults = () => {
             </div>
         )
     } else if (albums[0]?.originalArtist) {
+        console.log(albums[0])
         return (
             <div className="result-list">
                 {albums.map((song) => <div className="list-song-info" key={song.id}>
@@ -33,7 +34,7 @@ const SearchResults = () => {
                             <h3>{song.title}</h3>
                             <p>{song.Artist.name}</p>
                             <p>Originally recorded by {song.originalArtist}</p>
-                            <Link to={`/api/albums/${song.albumId}`}>Appears On</Link>
+                            Appears On <Link to={`/api/albums/${song.albumId}`}>{song.Album.title}</Link>
                         </div>
                     </div>)}
             </div>

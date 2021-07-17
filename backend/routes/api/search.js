@@ -24,16 +24,16 @@ router.post('/', asyncHandler(async (req, res, next) => {
         })
     } else if (searchBy === "song" && searchTerm) {
         recording = await Song.findAll({
-            include: Artist,
+            include: {model: Artist},
             where: { title: { [Op.iLike]: '%' + searchTerm + '%' } }
         })
     } else if (searchBy === "song" && !searchTerm) {
         recording = await Song.findAll({
-            include: { model: Album, include: Artist }
+            include: [{ model: Album }, {model: Artist}]
         })
     } else if (searchBy === "original-artist" && searchTerm) {
         recording = await Song.findAll({
-            include: Artist,
+            include: {model: Artist},
             where: { originalArtist: { [Op.iLike]: '%' + searchTerm + '%' } }
         })
     } else if (searchBy === "original-artist" && !searchTerm) {

@@ -16,6 +16,7 @@
 #album-page-text {
     grid-area: left;
     padding: 5px;
+    margin-left: 20px;
 }
 
 #album-page-right {
@@ -40,5 +41,5 @@
 
 #collection-status {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }

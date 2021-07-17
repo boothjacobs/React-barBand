@@ -34,7 +34,7 @@ const LoginFormPage = () => {
         <div id="login-page">
             <div className="login-form">
                 <h3>Log In</h3>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="auth-form">
                     <ul className="error-render">
                         {errors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>

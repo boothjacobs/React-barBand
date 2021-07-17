@@ -1,6 +1,7 @@
-/* header > p grayed out
-header centered
-ps max-width*/
+#home-page {
+    margin-top: 100px;
+}
+
 #home-heading {
     text-align: center;
     background-color: white;
@@ -12,4 +13,11 @@ ps max-width*/
 #home-text, #about {
     text-align: center;
     margin: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

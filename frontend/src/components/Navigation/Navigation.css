@@ -1,7 +1,11 @@
 nav {
-    /* position: fixed; */
-    z-index: 1;
-    /* background-color: #353030; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* z-index: 1; */
+    margin-bottom: 20px;
+    background-color: #ffffff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,6 +31,7 @@ nav {
 .profile-dropdown {
     border: 1px solid rgb(211, 211, 211);
     background-color: white;
+    padding: 5px;
     border-radius: 5px;
 }
 
