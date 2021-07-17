@@ -26,7 +26,7 @@ const SearchResults = () => {
             </div>
         )
     } else if (albums[0]?.originalArtist) {
-        console.log(albums[0])
+        // console.log(albums[0])
         return (
             <div className="result-list">
                 {albums.map((song) => <div className="list-song-info" key={song.id}>
