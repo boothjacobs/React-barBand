@@ -23,6 +23,17 @@ const AlbumPage = () => {
 
     const ownThis = collection.find(collect => collect.albumId === +id );
 
+    let audioSource;
+    let nowPlaying;
+
+    const playSong = (e) => {
+        audioSource = e.target.id;
+        console.log("play song react", audioSource)
+        let songPlay = document.getElementById("album-page-audio-player");
+        console.log(songPlay)
+        songPlay.play();
+    };
+
     const addButton = async () => {
         await dispatch(addCollection(sessionUser.id, +id));
         history.push("/");
@@ -34,14 +45,26 @@ const AlbumPage = () => {
             <div id="album-page-text">
                 <h1 id="album-page-title">{album?.title}</h1>
                 <div id="collection-status">
-                    {/* <div id="music-player"></div> */}
                     { ownThis ? (<p>❤️ You own this</p>) : (<button type="button" onClick={e => addButton()}>Add to Collection</button>) }
+                    <div id="music-player">
+                        <p>Now Playing: {}</p>
+                        <audio id="album-page-audio-player" src="https://barband-seeds.s3.us-east-2.amazonaws.com/Something+Merry+-+ReRed/Gabe+Goodman+-+ReRed+-+04+I+Knew+You+Were+Trouble.mp3" controls></audio>
+                    </div>
                 </div>
                 <div id="album-page-details">
                     <ol>
                         {album?.Songs?.map((song) => {
                             return (
-                                <li key={song.id}><b>{song.title}</b> <i>by {song.originalArtist}</i>: <b>{song.Artist.name}</b></li>
+                                <div className="song-with-player">
+                                    <div className="song-play-button">
+                                        <button type="button" onClick={playSong}><i class="fas fa-play" id={song.fileUrl}></i></button>
+                                    </div>
+                                    <div className="song-title">
+                                        <li key={song.id}>
+                                            <b>{song.title}</b> <i>by {song.originalArtist}</i>: <b>{song.Artist.name}</b>
+                                        </li>
+                                    </div>
+                                </div>
                             )
                         })}
                         <p>{album?.description}</p>
