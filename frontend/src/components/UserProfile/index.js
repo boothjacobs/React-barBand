@@ -13,8 +13,8 @@ const UserProfile = () => {
     const { id } = useParams();
     const records = useSelector((state) => Object.values(state.collection));
     const sessionUser = useSelector(state => state.session.user);
-    let user = records[0]?.User;
     //currently using the association on Collection to get the user info related to the page (without a second database call)
+    let user = records[0]?.User;
 
     useEffect(() => {
         dispatch(getCollection(id))

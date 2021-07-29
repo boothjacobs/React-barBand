@@ -98,6 +98,16 @@ module.exports = {
       {name: "PUP", location: "Seattle, WA", createdAt: new Date(), updatedAt: new Date() },
       {name: "The National", location: "Seattle, WA", createdAt: new Date(), updatedAt: new Date() },
       {name: "Waxahatchee", location: "Kansas City, MO", createdAt: new Date(), updatedAt: new Date() },
+      {name: "Luke Lalonde", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },  //95
+      {name: "Julie Arsenault", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },  //96
+      {name: "The O'Pears", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },  //97
+      {name: "Nick McKinlay", location: "Toronto", createdAt: new Date(), updatedAt: new Date() }, //98
+      {name: "Christo Graham", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },  //99
+      {name: "Peter Dreimanis", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },  //100
+      {name: "Fast Romantics", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },
+      {name: "Matthew 'Doc' Dunn", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },
+      {name: "Rogue Tenant + Steve Sladkowski", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },
+      {name: "Ali Haberstroh + Cameron Brown", location: "Toronto", createdAt: new Date(), updatedAt: new Date() },
      ], {});
 
   },
