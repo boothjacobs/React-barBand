@@ -21,6 +21,7 @@ const SearchBar = () => {
         e.preventDefault();
         let searchResult = await dispatch(searchAlbums(searchTerm, searchBy));
         history.push("/search-results");
+        setSearchTerm("");
     };
 
     return (
