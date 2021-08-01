@@ -19,6 +19,7 @@ const AlbumPage = () => {
     const collection = useSelector((state) => Object.values(state.collection));
 
     const [nowPlaying, setNowPlaying] = useState(false);
+    const [playingTitle, setPlayingTitle] = useState("");
 
     const history = useHistory();
     useEffect(() => {
@@ -27,16 +28,15 @@ const AlbumPage = () => {
 
     const ownThis = collection.find(collect => collect.albumId === +id );
 
-    let songPlay = document.getElementById("album-page-audio-player");
+    let songPlayer = document.getElementById("album-page-audio-player");
     let audioSource;
-//CONCEPT: conditional render player when button on song is pushed--player can be populated
-//from within map???
+
     const playSong = (e) => {
         audioSource = e.target.id;
-        console.log("play song react", audioSource)
+        // console.log("play song react", audioSource)
         setNowPlaying(true);
-        // console.log(songPlay)
-        // songPlay.play();
+        songPlayer.setAttribute("src", audioSource)
+        songPlayer.play();
     };
 
     const addButton = async () => {
@@ -53,17 +53,17 @@ const AlbumPage = () => {
                 <div id="collection-status">
                     { ownThis ? (<p>❤️ You own this</p>) : (<button type="button" onClick={e => addButton()}>Add to Collection</button>) }
                 </div> : null }
-                { nowPlaying ? <div id="music-player">
-                    <p>Now Playing: {}</p>
-                    <audio id="album-page-audio-player" src="https://barband-seeds.s3.us-east-2.amazonaws.com/Something+Merry+-+ReRed/Gabe+Goodman+-+ReRed+-+04+I+Knew+You+Were+Trouble.mp3" controls></audio>
-                </div> : null}
+                <div id="music-player">
+                    {nowPlaying ? <p>Now Playing</p> : null}
+                    <audio id="album-page-audio-player" src="" controls></audio>
+                </div>
                 <div id="album-page-details">
                     <ol>
                         {album?.Songs?.map((song) => {
                             return (
-                                <div className="song-with-player">
+                                <div className="song-with-player" key={song.id}>
                                     <div className="song-play-button">
-                                        <button type="button" onClick={playSong}><i class="fas fa-play" id={song.fileUrl}></i></button>
+                                        <button type="button" onClick={playSong}><i id={song.fileUrl} class="fas fa-play"></i></button>
                                     </div>
                                     <div className="song-title">
                                         <li key={song.id}>
