@@ -21,7 +21,7 @@ const UserProfile = () => {
     }, [dispatch, id]);
 
     return (
-        <>
+        <div className="user-profile-page">
             {user ? (<div id="user-profile">
                     <div>
                         <img id="profile-image" alt="user" src={user?.profileImage} />
@@ -44,7 +44,7 @@ const UserProfile = () => {
 
             <div className="divider"></div>
             <Collection />
-        </>
+        </div>
     )
 
 };

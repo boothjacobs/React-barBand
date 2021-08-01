@@ -1,3 +1,9 @@
+.user-profile-page {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
 #collection {
     display: flex;
     flex-flow: row wrap;

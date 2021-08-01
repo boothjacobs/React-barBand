@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       references: { model: "Albums" }
     },
-    fileUrl: DataTypes.STRING,
+    fileUrl: DataTypes.TEXT,
     originalArtist: {
       allowNull: false,
       type: DataTypes.STRING
