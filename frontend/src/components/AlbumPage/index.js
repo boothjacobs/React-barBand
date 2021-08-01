@@ -49,9 +49,10 @@ const AlbumPage = () => {
         <div id="album-page">
             <div id="album-page-text">
                 <h1 id="album-page-title">{album?.title}</h1>
+                {sessionUser ?
                 <div id="collection-status">
                     { ownThis ? (<p>❤️ You own this</p>) : (<button type="button" onClick={e => addButton()}>Add to Collection</button>) }
-                </div>
+                </div> : null }
                 { nowPlaying ? <div id="music-player">
                     <p>Now Playing: {}</p>
                     <audio id="album-page-audio-player" src="https://barband-seeds.s3.us-east-2.amazonaws.com/Something+Merry+-+ReRed/Gabe+Goodman+-+ReRed+-+04+I+Knew+You+Were+Trouble.mp3" controls></audio>

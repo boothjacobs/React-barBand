@@ -1,9 +1,16 @@
+.search-page {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
 .result-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
-    width: 100vh;
+    width: 100vw;
 }
 
 .list-album-info {
