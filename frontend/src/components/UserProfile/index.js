@@ -33,10 +33,10 @@ const UserProfile = () => {
                         <p>{user?.location}</p>
                         <p>{user?.bio}</p>
                     </div>
-                    {/* {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
+                    {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
                         <Link>Edit Profile</Link>
                     </div>) : null}
-                    EDIT PROFILE HAS NO BACKEND    */}
+                    {/* EDIT PROFILE HAS NO BACKEND */}
                 </div>) : (
                     <div id="conditional-user-profile">
                         <h3>Sorry, friend, you don't have a collection yet!</h3>
