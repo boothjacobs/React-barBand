@@ -31,9 +31,11 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
+      <div>
+        <button id="user-button" onClick={openMenu}>
+          <i className="fas fa-user-circle" />
+        </button>
+      </div>
       {showMenu && (
         <div className="profile-dropdown">
           <div className="profile-dropdown-buttons"><NavLink to={`/api/users/${user.id}`}>{user.username}</NavLink></div>

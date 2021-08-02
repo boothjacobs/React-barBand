@@ -6,7 +6,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #1b1717;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
 }
 
 p {
@@ -24,6 +24,8 @@ button {
     box-shadow: 0px 0px 5px rgb(58, 58, 58);
     border: none;
     border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
 }
 
 a {
@@ -44,9 +46,11 @@ h1, h2, h3 {
 }
 
 .divider {
-    height: 2px;
+    height: 1px;
     width: auto;
-    background-color: rgb(58, 58, 58);
+    background-color: rgb(182, 182, 182);
     margin-top: 10px;
     margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
 }

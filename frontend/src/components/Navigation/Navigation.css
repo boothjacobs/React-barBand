@@ -3,13 +3,13 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    /* z-index: 1; */
     margin-bottom: 20px;
-    background-color: #ffffff;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
+    border-bottom: 1px solid rgb(182, 182, 182);
+    background-color: #ffffff;
 }
 
 .nav-links {
@@ -23,6 +23,18 @@ nav {
     justify-content: space-evenly;
 }
 
+#search-bar input,
+#search-bar select {
+    background-color: rgb(235, 235, 235);
+    padding: 5px;
+    margin: 3px;
+    border: none;
+}
+
+#search-bar button {
+    margin: 3px;
+}
+
 #session-links {
     display: inline-block;
     padding: 0px 5px;
@@ -33,6 +45,9 @@ nav {
     background-color: white;
     padding: 5px;
     border-radius: 5px;
+    position: absolute;
+    right: 50px;
+    z-index: 2;
 }
 
 .profile-dropdown-buttons {

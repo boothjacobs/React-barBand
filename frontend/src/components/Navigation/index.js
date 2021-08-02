@@ -61,8 +61,8 @@ const Navigation = ({isLoaded}) => {
             <div id="session-links">
               {isLoaded && sessionLinks}
             </div>
+        {/* <div className="divider"></div> */}
         </nav>
-        <div className="divider"></div>
       </div>
     );
 
