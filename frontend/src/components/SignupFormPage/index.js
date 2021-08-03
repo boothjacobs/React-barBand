@@ -55,27 +55,27 @@ const SignupFormPage = () => {
                         {errors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>
                         <div className="form-field">
-                            <label htmlFor="username"> Username </label>
+                            <label htmlFor="username"> Username: </label>
                                 <input type="text" value={username} name="username" required
                                     onChange={(e) => setUsername(e.target.value)}/>
                         </div>
                         <div className="form-field">
-                            <label htmlFor="email"> Email </label>
+                            <label htmlFor="email"> Email: </label>
                                 <input type="email" value={email} name="email" required
                                     onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="form-field">
-                            <label htmlFor="password"> Password</label>
+                            <label htmlFor="password"> Password: </label>
                                 <input type="password" value={password} name="password" required
                                     onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                         <div className="form-field">
-                            <label> Confirm password </label>
+                            <label> Confirm password: </label>
                                 <input type="password" value={confPassword} required
                                     onChange={(e) => setConfPassword(e.target.value)}/>
                         </div>
                         <div className="form-field">
-                            <label htmlFor="location"> Location </label>
+                            <label htmlFor="location"> Location: </label>
                                 <input type="text" value={location} name="location"
                                     onChange={(e) => setLocation(e.target.value)}/>
                         </div>

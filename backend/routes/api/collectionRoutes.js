@@ -12,7 +12,7 @@ const router = express.Router();
 
 //count collections
 router.post("/count", asyncHandler(async(req, res) => {
-    const {albumId} = req.body; 
+    const {albumId} = req.body;
     const otherCollections = await Collection.count({
         where: {
             'albumId': albumId,
@@ -40,8 +40,6 @@ router.delete("/", requireAuth, asyncHandler(async (req, res) => {
             "userId": collectionRelationship.userId
         }
     });
-
-
 
     deletedCollection.forEach(async (record) => {
         await record.destroy();

@@ -71,6 +71,28 @@ export const signup = (user) => async (dispatch) => {
     return data;
 };
 
+export const editProfile = (details) => async (dispatch) => {
+    const {location, bio, image, user} = details;
+    const formData = new FormData();
+    formData.append("location", location);
+    formData.append("bio", bio);
+    if (image) formData.append("image", image);
+
+    console.log("session.js thunk", location, bio, user)
+
+    const response = await csrfFetch(`/api/users/${user.id}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+        body: formData,
+      });
+    const data = await response.json();
+
+    dispatch(setUser(data.user));
+    return data;
+}
+
 
 //restore user from session info--dispatched in src/App.js
 export const restoreUser = () => async dispatch => {

@@ -42,6 +42,24 @@ router.post('/', singleMulterUpload("image"), validateSignup, asyncHandler(async
     }),
 );
 
+router.post("/:id", singleMulterUpload("image"), asyncHandler(async (req, res) => {
+    const { location, bio } = req.body;
+    const profileImage = await singlePublicFileUpload(req.file);
+    const user = await User.findByPk(req.params.id);
+
+    await user.update({
+      location: location,
+      bio: bio,
+      profileImage: profileImage
+    });
+    // if (profileImage) {
+    //   user.profileImage = profileImage;
+    //   await user.save;
+    // };
+    console.log(user);
+    return res.json({user});
+}));
+
 //GET COLLECTIONS FOR USER
 router.get("/:id", asyncHandler(async (req, res) => {
   const collections = await Collection.findAll({
