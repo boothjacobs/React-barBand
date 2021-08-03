@@ -14,7 +14,14 @@ const UserProfile = () => {
     const records = useSelector((state) => Object.values(state.collection));
     const sessionUser = useSelector(state => state.session.user);
     //currently using the association on Collection to get the user info related to the page (without a second database call)
-    let user = records[0]?.User;
+    let user;
+    if (records.length > 0) {
+        user = records[0]?.User;
+    } else {
+        user = sessionUser;
+    }
+
+    console.log(records, user)
 
     useEffect(() => {
         dispatch(getCollection(id))
@@ -24,29 +31,29 @@ const UserProfile = () => {
         //location, bio, profile image
     }
 
-    return (
+    return sessionUser && (
         <div className="user-profile-page">
-            {user ? (<div id="user-profile">
-                    <div>
-                        <img id="profile-image" alt="user" src={user?.profileImage} />
-                    </div>
-                    <div>
-                        <h1>{user?.username}</h1>
-                    </div>
-                    <div>
-                        <p>{user?.location}</p>
-                        <p>{user?.bio}</p>
-                    </div>
-                    {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
-                        <button type="button" onClick={editProfile}>Edit Profile</button>
-                    </div>) : null}
-                </div>) : (
-                    <div id="conditional-user-profile">
-                        <h3>Sorry, friend, you don't have a collection yet!</h3>
-                    </div>)}
+            <div id="user-profile">
+                <div>
+                    <img id="profile-image" alt="user" src={user?.profileImage} />
+                </div>
+                <div>
+                    <h1>{user?.username}</h1>
+                </div>
+                <div>
+                    <p>{user?.location}</p>
+                    <p>{user?.bio}</p>
+                </div>
+                {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
+                    <button type="button" onClick={editProfile}>Edit Profile</button>
+                </div>) : null}
+            </div>
 
             <div className="divider"></div>
-            <Collection />
+            {records.length > 0 ? <Collection /> :
+                <div id="conditional-user-profile">
+                    <h3>Sorry, friend, you don't have a collection yet!</h3>
+                </div>}
         </div>
     )
 
