@@ -20,6 +20,10 @@ const UserProfile = () => {
         dispatch(getCollection(id))
     }, [dispatch, id]);
 
+    const editProfile = (e) => {
+        //location, bio, profile image
+    }
+
     return (
         <div className="user-profile-page">
             {user ? (<div id="user-profile">
@@ -34,9 +38,8 @@ const UserProfile = () => {
                         <p>{user?.bio}</p>
                     </div>
                     {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
-                        <Link>Edit Profile</Link>
+                        <button type="button" onClick={editProfile}>Edit Profile</button>
                     </div>) : null}
-                    {/* EDIT PROFILE HAS NO BACKEND */}
                 </div>) : (
                     <div id="conditional-user-profile">
                         <h3>Sorry, friend, you don't have a collection yet!</h3>
