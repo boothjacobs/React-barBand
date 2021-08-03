@@ -16,10 +16,20 @@ const SignupFormPage = () => {
     const [location, setLocation] = useState("");
     const [confPassword, setConfPassword] = useState("");
     const [errors, setErrors] = useState([]);
+    const [profileImage, setProfileImage] = useState("");
 
     if (sessionUser) return (
         <Redirect to="/" />
     );
+
+    const getImage = (e) => {
+        if (e.target.files) {
+            const imgFile = e.target.files[0];
+            setProfileImage(imgFile);
+        } else {
+            console.log("no image")
+        }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,13 +38,13 @@ const SignupFormPage = () => {
             window.alert("Confirmed password must match password.")
         } else {
             setErrors([]);
-            return dispatch(sessionActions.signup({ username, email, location, bio, password }))
+            return dispatch(sessionActions.signup({ username, email, location, bio, password, profileImage }))
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
                 });
         }
-    }
+    };
 
     return (
         <div id="signup-page">
@@ -73,6 +83,11 @@ const SignupFormPage = () => {
                             <label htmlFor="bio"> Bio: </label>
                                 <textarea value={bio} name="bio"
                                     onChange={(e) => setBio(e.target.value)}/>
+                        </div>
+                        <div className="form-field">
+                            <label htmlFor="profImage"> Profile Image: </label>
+                                <input type="file" value={profileImage} name="profImage"
+                                    onChange={getImage}/>
                         </div>
                     <div className="form-field">
                         <button className="login-button">Sign Up</button>
