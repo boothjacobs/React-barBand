@@ -48,21 +48,27 @@ export const demoLogin = () => async (dispatch) => {
 
 //sign up using API route
 export const signup = (user) => async (dispatch) => {
-    const { username, email, location, bio, password } = user;
+    const { username, email, location, bio, password, image } = user;
+    const formData = new FormData();
+
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("location", location);
+    formData.append("bio", bio);
+    formData.append("password", password);
+    if (image) formData.append("image", image);
+
     const response = await csrfFetch("/api/users", {
       method: "POST",
-      body: JSON.stringify({
-        username,
-        email,
-        location,
-        bio,
-        password,
-      }),
+      headers: {
+          "Content-Type": "multipart/form-data"
+      },
+      body: formData,
     });
     const data = await response.json();
 
     dispatch(setUser(data.user));
-    return response;
+    return data;
 };
 
 

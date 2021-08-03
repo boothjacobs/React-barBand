@@ -16,7 +16,7 @@ const SignupFormPage = () => {
     const [location, setLocation] = useState("");
     const [confPassword, setConfPassword] = useState("");
     const [errors, setErrors] = useState([]);
-    const [profileImage, setProfileImage] = useState("");
+    const [image, setProfileImage] = useState("");
 
     if (sessionUser) return (
         <Redirect to="/" />
@@ -38,7 +38,7 @@ const SignupFormPage = () => {
             window.alert("Confirmed password must match password.")
         } else {
             setErrors([]);
-            return dispatch(sessionActions.signup({ username, email, location, bio, password, profileImage }))
+            return dispatch(sessionActions.signup({ username, email, location, bio, password, image }))
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
@@ -85,8 +85,8 @@ const SignupFormPage = () => {
                                     onChange={(e) => setBio(e.target.value)}/>
                         </div>
                         <div className="form-field">
-                            <label htmlFor="profImage"> Profile Image: </label>
-                                <input type="file" value={profileImage} name="profImage"
+                            <label htmlFor="image"> Profile Image: </label>
+                                <input type="file" value={image} name="image"
                                     onChange={getImage}/>
                         </div>
                     <div className="form-field">
