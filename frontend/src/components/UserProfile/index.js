@@ -34,6 +34,7 @@ const UserProfile = () => {
     const [bio, setBio] = useState(user.bio);
     const [location, setLocation] = useState(user.location);
     const [image, setProfileImage] = useState(user.profileImage);
+    const [loading, setLoading] = useState(false);
 
     const editProfileButton = (e) => {
         setShowForm(true);
@@ -54,8 +55,11 @@ const UserProfile = () => {
         dispatch(editProfile({ location, bio, image, user }));
         dispatch(restoreUser());
         setShowForm(false);
-        history.push("/");
-        history.goBack();
+        setLoading(true);
+        setTimeout(() => {
+            history.push("/");
+            history.goBack();
+        }, 2000);
     }
 
     return sessionUser && (
@@ -74,6 +78,7 @@ const UserProfile = () => {
                 {user?.id === sessionUser?.id ? (<div id="edit-profile-link">
                     <button type="button" onClick={editProfileButton}>Edit Profile</button>
                 </div>) : null}
+                {loading ? <div>Loading...</div> : null}
             </div>
 
             {showForm ? <>
