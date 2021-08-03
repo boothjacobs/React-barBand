@@ -86,7 +86,7 @@ const SignupFormPage = () => {
                         </div>
                         <div className="form-field">
                             <label htmlFor="image"> Profile Image: </label>
-                                <input type="file" value={image} name="image"
+                                <input type="file" name="image"
                                     onChange={getImage}/>
                         </div>
                     <div className="form-field">
