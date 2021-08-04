@@ -1,18 +1,24 @@
 #home-page {
-    margin-top: 100px;
+    top: 50px;
+    left: 0px;
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    background-color: #EEF2F3;
+    padding-top: 50px;
 }
 
 #home-heading {
     text-align: center;
     background-color: white;
-    border: 1px solid rgb(58, 58, 58);
+    /* border: 1px solid rgb(58, 58, 58); */
     width: 75%;
     margin: auto;
+    padding: 5px;
 }
 
 #home-text, #about {
     text-align: center;
-    margin: 10px;
 }
 
 footer {
@@ -20,4 +26,54 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: white;
+    padding-bottom: 15px;
+}
+
+#bandcamp-daily {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+}
+
+#bandcamp-daily-head {
+    color: #408EA3;
+    margin-left: 10%;
+}
+
+#bandcamp-daily > .list-album-info {
+    background-color: white;
+    /* border: 1px solid rgb(156, 156, 156); */
+}
+
+.b-daily-list {
+    width: 200px;
+    margin: 20px;
+    background-color: white;
+    /* padding: 20px; */
+}
+
+.list-text > a {
+    color: black;
+}
+
+.list-text > a:hover {
+    text-decoration: underline;
+}
+
+.b-daily-list > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.b-daily-list > a:hover {
+    text-decoration: underline;
+}
+
+.bd-title {
+    text-align: center;
 }
