@@ -25,6 +25,7 @@
 .form-field {
     padding: 5px;
     margin: 5px;
+    margin-right: 10%;
 }
 
 .form-field > input {
@@ -33,4 +34,13 @@
 
 .form-field > textarea {
     margin: 0px 10px;
+}
+
+#file-field {
+    width: 150px;
+}
+
+.form-button {
+    margin: 10px;
+    align-self: center;
 }

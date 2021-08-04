@@ -54,42 +54,41 @@ const SignupFormPage = () => {
                     <ul className="error-render">
                         {errors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>
-                        <div className="form-field">
-                            <label htmlFor="username"> Username: </label>
-                                <input type="text" value={username} name="username" required
-                                    onChange={(e) => setUsername(e.target.value)}/>
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="email"> Email: </label>
-                                <input type="email" value={email} name="email" required
-                                    onChange={(e) => setEmail(e.target.value)}/>
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="password"> Password: </label>
-                                <input type="password" value={password} name="password" required
-                                    onChange={(e) => setPassword(e.target.value)}/>
-                        </div>
-                        <div className="form-field">
-                            <label> Confirm password: </label>
-                                <input type="password" value={confPassword} required
-                                    onChange={(e) => setConfPassword(e.target.value)}/>
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="location"> Location: </label>
-                                <input type="text" value={location} name="location"
-                                    onChange={(e) => setLocation(e.target.value)}/>
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="bio"> Bio: </label>
-                                <textarea value={bio} name="bio"
-                                    onChange={(e) => setBio(e.target.value)}/>
-                        </div>
-                        <div className="form-field">
-                            <label htmlFor="image"> Profile Image: </label>
-                                <input type="file" name="image"
-                                    onChange={getImage}/>
-                        </div>
                     <div className="form-field">
+                        <label htmlFor="username"> Username: </label>
+                        <input type="text" value={username} name="username" required
+                            onChange={(e) => setUsername(e.target.value)}/>
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="email"> Email: </label>
+                        <input type="email" value={email} name="email" required
+                            onChange={(e) => setEmail(e.target.value)}/>
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="password"> Password: </label>
+                        <input type="password" value={password} name="password" required
+                            onChange={(e) => setPassword(e.target.value)}/>
+                    </div>
+                    <div className="form-field">
+                        <label> Confirm password: </label>
+                        <input type="password" value={confPassword} required
+                            onChange={(e) => setConfPassword(e.target.value)}/>
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="location"> Location: </label>
+                        <input type="text" value={location} name="location"
+                            onChange={(e) => setLocation(e.target.value)}/>
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="bio"> Bio: </label>
+                        <textarea value={bio} name="bio"
+                            onChange={(e) => setBio(e.target.value)}/>
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="image"> Profile Image: </label>
+                        <input id="file-field" type="file" name="image" onChange={getImage}/>
+                    </div>
+                    <div className="form-button">
                         <button className="login-button">Sign Up</button>
                     </div>
                 </form>

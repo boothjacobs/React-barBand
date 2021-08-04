@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { editProfile, restoreUser } from '../../store/session';
+
+import "./CollectionPage.css";
+import "../SignupFormPage/signup.css";
 
 const EditProfile = ({user}) => {
     const dispatch = useDispatch();
@@ -43,7 +45,7 @@ const EditProfile = ({user}) => {
                 </div>
                 <div className="form-field">
                     <label htmlFor="image"> Profile Image: </label>
-                        <input type="file" name="image"
+                        <input type="file" name="image" id="file-field"
                             onChange={getImage}/>
                 </div>
                 <div className="form-field">
