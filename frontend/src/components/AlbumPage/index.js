@@ -18,7 +18,6 @@ const AlbumPage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const collection = useSelector((state) => Object.values(state.collection));
 
-    const [nowPlaying, setNowPlaying] = useState(false);
     const [playingTitle, setPlayingTitle] = useState("");
 
     const history = useHistory();
@@ -34,7 +33,6 @@ const AlbumPage = () => {
     const playSong = (e) => {
         audioSource = e.target.id;
         // console.log("play song react", audioSource)
-        setNowPlaying(true);
         songPlayer.setAttribute("src", audioSource)
         songPlayer.play();
     };
@@ -54,7 +52,6 @@ const AlbumPage = () => {
                     { ownThis ? (<p>❤️ You own this</p>) : (<button type="button" onClick={e => addButton()}>Add to Collection</button>) }
                 </div> : null }
                 <div id="music-player">
-                    {nowPlaying ? <p>Now Playing</p> : null}
                     <audio id="album-page-audio-player" src="" controls></audio>
                 </div>
                 <div id="album-page-details">
