@@ -12,7 +12,7 @@ router.post('/', asyncHandler(async (req, res, next) => {
     const { searchTerm, searchBy } = req.body;
 
     let recording;
-    // console.log(typeof searchTerm, searchTerm, typeof searchBy, searchBy)
+
     if (searchBy === "album" && searchTerm) {
         recording = await Album.findAll({
             include: { model: Song, include: Artist },
@@ -51,8 +51,6 @@ router.post('/', asyncHandler(async (req, res, next) => {
             include: Song
         })
     }
-
-    // console.log("#########", recording, "#############")
 
     return res.json(recording);
 
